@@ -1,10 +1,13 @@
-package com.github.jaczerob.madamchuckle.models;
+package com.github.jaczerob.madamchuckle.models.fieldoffice;
 
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonSetter;
+import com.github.jaczerob.madamchuckle.models.ToontownObject;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -34,10 +37,16 @@ public class FieldOffices extends ToontownObject {
 
     @JsonSetter("fieldOffices")
     public void setFieldOffices(Map<String, FieldOffice> fieldOffices) {
-        this.fieldOffices = new HashMap<>();
+        Comparator<FieldOffice> comparator = Comparator.comparing(f -> f.getDifficulty());
+        comparator.thenComparing(f -> f.getAnnexes());
 
-        for (Entry<String, FieldOffice> fEntry : fieldOffices.entrySet()) {
-            this.fieldOffices.put(zoneIDLookup.getOrDefault(fEntry.getKey(), "Zone Not Found"), fEntry.getValue());
-        }
+        this.fieldOffices = fieldOffices.entrySet().stream()
+        .sorted(Map.Entry.comparingByValue(comparator))
+        .collect(Collectors.toMap(FieldOffices::convertZoneIDToZone, Map.Entry::getValue,
+                (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+    }
+
+    private static String convertZoneIDToZone(Map.Entry<String,FieldOffice> entry) {
+        return zoneIDLookup.getOrDefault(entry.getKey(), "Zone Not Found");
     }
 }

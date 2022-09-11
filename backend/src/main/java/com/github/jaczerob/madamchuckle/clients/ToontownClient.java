@@ -6,17 +6,17 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.github.jaczerob.madamchuckle.configurations.ToontownClientConfig;
-import com.github.jaczerob.madamchuckle.models.FieldOffices;
-import com.github.jaczerob.madamchuckle.models.LoginInfo;
-import com.github.jaczerob.madamchuckle.models.LoginResponse;
-import com.github.jaczerob.madamchuckle.models.News;
-import com.github.jaczerob.madamchuckle.models.Population;
-import com.github.jaczerob.madamchuckle.models.QueueToken;
-import com.github.jaczerob.madamchuckle.models.ReleaseNotes;
-import com.github.jaczerob.madamchuckle.models.ReleaseNotesPartial;
+import com.github.jaczerob.madamchuckle.models.fieldoffice.FieldOffices;
+import com.github.jaczerob.madamchuckle.models.login.Authentication;
+import com.github.jaczerob.madamchuckle.models.login.LoginInfo;
+import com.github.jaczerob.madamchuckle.models.login.LoginResponse;
+import com.github.jaczerob.madamchuckle.models.login.QueueToken;
+import com.github.jaczerob.madamchuckle.models.news.News;
+import com.github.jaczerob.madamchuckle.models.population.Population;
+import com.github.jaczerob.madamchuckle.models.releasenotes.ReleaseNotes;
+import com.github.jaczerob.madamchuckle.models.releasenotes.ReleaseNotesPartial;
 
 import feign.Headers;
 
@@ -50,9 +50,6 @@ public interface ToontownClient {
     public LoginResponse updateQueue(QueueToken queueToken);
 
     @PostMapping(value="/login?format=json")
-    @Headers({
-        "Content-Type: application/x-www-form-urlencoded",
-        "Accept: application/json; charset=utf-8"
-    })
-    public LoginResponse authenticate(@RequestParam("appToken") String appToken, @RequestParam("authToken") String authToken);
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    public LoginResponse authenticate(Authentication authentication);
 }

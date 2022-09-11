@@ -1,15 +1,9 @@
-export class Population {
-    error: string;
-    lastUpdated: number;
-    totalPopulation: number;
-    populationByDistrict: Map<String, Number>;
-    statusByDistrict: Map<String, String>;
+import { District } from "./district";
 
-    constructor (error: string, lastUpdated: number, totalPopulation: number, populationByDistrict: Map<String, Number>, statusByDistrict: Map<String, String>) {
-        this.error = error;
-        this.lastUpdated = lastUpdated;
-        this.totalPopulation = totalPopulation;
-        this.populationByDistrict = populationByDistrict;
-        this.statusByDistrict = statusByDistrict;
-    }
+export class Population {
+    constructor (
+        public error: string,
+        public lastUpdated: number,
+        public totalPopulation: number,
+        public districts: District[]) { }
 }

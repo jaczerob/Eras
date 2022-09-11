@@ -1,4 +1,4 @@
-package com.github.jaczerob.madamchuckle.models;
+package com.github.jaczerob.madamchuckle.models.fieldoffice;
 
 import com.fasterxml.jackson.annotation.JsonSetter;
 

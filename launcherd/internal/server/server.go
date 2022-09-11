@@ -29,6 +29,8 @@ func launch(c echo.Context) error {
 		return err
 	}
 
+	defer ws.Close()
+
 	log.Println("reading json")
 	var payload Payload
 	if err = ws.ReadJSON(&payload); err != nil {

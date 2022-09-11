@@ -17,50 +17,42 @@ export class ToontownService {
   constructor(private http: HttpClient) { }
 
   public getPopulation(): Observable<Population> {
-    return this.http.get<Population>(
-      environment.baseUrl + this.toontownUrl + '/population',
-      {
-        headers: environment.headers,
-        withCredentials: environment.withCredentials
-      }
-    );
+    return this.get<Population>('/population');
   }
 
   public getNews(): Observable<News> {
-    return this.http.get<News>(
-      environment.baseUrl + this.toontownUrl + '/news',
-      {
-        headers: environment.headers,
-        withCredentials: environment.withCredentials
-      }
-    );
+    return this.get<News>('/news');
   }
 
   public getReleaseNotes(): Observable<ReleaseNotes> {
-    return this.http.get<ReleaseNotes>(
-      environment.baseUrl + this.toontownUrl + '/releasenotes',
-      {
-        headers: environment.headers,
-        withCredentials: environment.withCredentials
-      }
-    );
+    return this.get<ReleaseNotes>('/releasenotes');
   }
 
   public getFieldOffices(): Observable<FieldOffices> {
-    return this.http.get<FieldOffices>(
-      environment.baseUrl + this.toontownUrl + '/fieldoffices',
-      {
-        headers: environment.headers,
-        withCredentials: environment.withCredentials
-      }
-    );
+    return this.get<FieldOffices>('/fieldoffices');
   }
 
   public login(username: string, password: string): Observable<LoginInfo> {
-    console.log('logging in...', environment.baseUrl + this.toontownUrl + '/login');
+    console.log('logging in...');
     const payload = JSON.stringify({'username': username, 'password': password});
-    return this.http.post<LoginInfo>(
-      environment.baseUrl + this.toontownUrl + '/login',
+    return this.post<LoginInfo>('/login', payload);
+  }
+
+  public updateQueue(queueToken: string): Observable<LoginInfo> {
+    console.log('updating queue...');
+    const payload = JSON.stringify({'queueToken': queueToken});
+    return this.post<LoginInfo>('/updateQueue', payload);
+  }
+
+  public authenticate(appToken: string, authToken: string): Observable<LoginInfo> {
+    console.log('authenticating...');
+    const payload = JSON.stringify({'appToken': appToken, 'authToken': authToken});
+    return this.post<LoginInfo>('/authenticate', payload);
+  }
+
+  private post<T>(endpoint: string, payload: string): Observable<T> {
+    return this.http.post<T>(
+      environment.baseUrl + this.toontownUrl + endpoint,
       payload,
       {
         headers: environment.headers,
@@ -69,12 +61,9 @@ export class ToontownService {
     )
   }
 
-  public updateQueue(queueToken: string): Observable<LoginInfo> {
-    console.log('updating queue...');
-    const payload = JSON.stringify({'queueToken': queueToken});
-    return this.http.post<LoginInfo>(
-      environment.baseUrl + this.toontownUrl + '/updateQueue',
-      payload,
+  private get<T>(endpoint: string): Observable<T> {
+    return this.http.get<T>(
+      environment.baseUrl + this.toontownUrl + endpoint,
       {
         headers: environment.headers,
         withCredentials: environment.withCredentials

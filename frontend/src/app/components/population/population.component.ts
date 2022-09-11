@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { District } from 'src/app/models/district';
 import { Population } from 'src/app/models/population';
 import { ToontownService } from 'src/app/services/toontown.service';
 
@@ -16,13 +17,17 @@ export class PopulationComponent implements OnInit {
     this.toontownService.getPopulation().subscribe((population) => this.population = population);
   }
 
-  getColor(population: Number): string {
-    if (population >= 500) {
-      return 'red';
-    } else if (population >= 300) {
-      return 'green';
+  getColor(district: District): string {
+    if (district.status === District.DRAINING) {
+      return District.DRAINING_COLOR;
+    } else if (district.status in [District.CLOSED, District.OFFLINE]) {
+      return District.OFFLINE_COLOR;
+    } else if (district.population >= District.FULL) {
+      return District.FULL_COLOR;
+    } else if (district.population >= District.BUSY) {
+      return District.BUSY_COLOR;
     } else {
-      return 'blue';
+      return District.EMPTY_COLOR;
     }
   }
 }

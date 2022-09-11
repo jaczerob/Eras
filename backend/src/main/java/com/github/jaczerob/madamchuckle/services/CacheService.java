@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.github.jaczerob.madamchuckle.clients.ToontownClient;
-import com.github.jaczerob.madamchuckle.models.FieldOffices;
-import com.github.jaczerob.madamchuckle.models.News;
-import com.github.jaczerob.madamchuckle.models.Population;
-import com.github.jaczerob.madamchuckle.models.ReleaseNotes;
-import com.github.jaczerob.madamchuckle.models.ReleaseNotesPartial;
 import com.github.jaczerob.madamchuckle.models.ToontownObject;
+import com.github.jaczerob.madamchuckle.models.fieldoffice.FieldOffices;
+import com.github.jaczerob.madamchuckle.models.news.News;
+import com.github.jaczerob.madamchuckle.models.population.Population;
+import com.github.jaczerob.madamchuckle.models.releasenotes.ReleaseNotes;
+import com.github.jaczerob.madamchuckle.models.releasenotes.ReleaseNotesPartial;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;

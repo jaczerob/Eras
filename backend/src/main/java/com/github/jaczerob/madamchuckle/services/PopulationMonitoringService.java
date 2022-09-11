@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.github.jaczerob.madamchuckle.clients.ToontownClient;
-import com.github.jaczerob.madamchuckle.models.Population;
+import com.github.jaczerob.madamchuckle.models.population.Population;
 
 @Component
 public class PopulationMonitoringService {

@@ -1,4 +1,6 @@
-package com.github.jaczerob.madamchuckle.models;
+package com.github.jaczerob.madamchuckle.models.releasenotes;
+
+import com.github.jaczerob.madamchuckle.models.ToontownObject;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

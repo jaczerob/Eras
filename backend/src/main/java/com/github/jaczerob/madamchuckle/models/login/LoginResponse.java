@@ -1,4 +1,4 @@
-package com.github.jaczerob.madamchuckle.models;
+package com.github.jaczerob.madamchuckle.models.login;
 
 import lombok.Data;
 
