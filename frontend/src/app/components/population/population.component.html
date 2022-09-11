@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-center align-middle">
+                Population ({{ population.totalPopulation }})
+            </h5>
+            <div class="container">
+                <div *ngFor="let district of population.populationByDistrict | keyvalue" class="row">
+                    <div class="col-md-auto">
+                        <i [ngStyle]="{ 'color': getColor(district.value) }" class="fa fa-circle" aria-hidden="true"></i> {{ district.key }}
+                    </div>
+                    <div class="col text-right">
+                        {{ district.value }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
