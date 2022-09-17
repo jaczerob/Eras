@@ -1,4 +1,4 @@
-package com.github.jaczerob.madamchuckle.models.population;
+package com.github.jaczerob.madamchuckle.toontown.loaders.population.models;
 
 import java.util.Comparator;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.github.jaczerob.madamchuckle.models.ToontownObject;
+import com.github.jaczerob.madamchuckle.toontown.models.ToontownObject;
 import com.google.common.collect.Streams;
 
 import lombok.Data;

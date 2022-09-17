@@ -1,4 +1,4 @@
-package com.github.jaczerob.madamchuckle.models.fieldoffice;
+package com.github.jaczerob.madamchuckle.toontown.loaders.fieldoffices.models;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonSetter;
-import com.github.jaczerob.madamchuckle.models.ToontownObject;
+import com.github.jaczerob.madamchuckle.toontown.models.ToontownObject;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.github.jaczerob.madamchuckle.entities.DistrictPopulationEntity;
 import com.github.jaczerob.madamchuckle.entities.TotalPopulationEntity;
-import com.github.jaczerob.madamchuckle.models.population.District;
-import com.github.jaczerob.madamchuckle.models.population.Population;
 import com.github.jaczerob.madamchuckle.repositories.DistrictPopulationRepository;
 import com.github.jaczerob.madamchuckle.repositories.TotalPopulationRepository;
+import com.github.jaczerob.madamchuckle.toontown.loaders.population.models.District;
+import com.github.jaczerob.madamchuckle.toontown.loaders.population.models.Population;
 
 @Service
 public class PopulationService {

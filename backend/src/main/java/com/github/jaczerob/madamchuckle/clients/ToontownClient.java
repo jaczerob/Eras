@@ -1,22 +1,13 @@
 package com.github.jaczerob.madamchuckle.clients;
 
-import java.util.List;
-
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.github.jaczerob.madamchuckle.configurations.ToontownClientConfig;
-import com.github.jaczerob.madamchuckle.models.fieldoffice.FieldOffices;
-import com.github.jaczerob.madamchuckle.models.login.Authentication;
-import com.github.jaczerob.madamchuckle.models.login.LoginInfo;
-import com.github.jaczerob.madamchuckle.models.login.LoginResponse;
-import com.github.jaczerob.madamchuckle.models.login.QueueToken;
-import com.github.jaczerob.madamchuckle.models.news.News;
-import com.github.jaczerob.madamchuckle.models.population.Population;
-import com.github.jaczerob.madamchuckle.models.releasenotes.ReleaseNotes;
-import com.github.jaczerob.madamchuckle.models.releasenotes.ReleaseNotesPartial;
+import com.github.jaczerob.madamchuckle.toontown.models.login.Authentication;
+import com.github.jaczerob.madamchuckle.toontown.models.login.LoginInfo;
+import com.github.jaczerob.madamchuckle.toontown.models.login.LoginResponse;
+import com.github.jaczerob.madamchuckle.toontown.models.login.QueueToken;
 
 import feign.Headers;
 
@@ -26,21 +17,6 @@ import feign.Headers;
     configuration=ToontownClientConfig.class
 )
 public interface ToontownClient {
-    @GetMapping("/population")
-    public Population getPopulation();
-
-    @GetMapping("/news")
-    public News getNews();
-
-    @GetMapping("/releasenotes")
-    public List<ReleaseNotesPartial> getReleaseNotes();
-
-    @GetMapping("/releasenotes/{id}")
-    public ReleaseNotes getReleaseNote(@PathVariable("id") int id);
-
-    @GetMapping("/fieldoffices")
-    public FieldOffices getFieldOffices();
-
     @PostMapping(value="/login?format=json")
     @Headers("Content-Type: application/x-www-form-urlencoded")
     public LoginResponse login(LoginInfo loginInfo);

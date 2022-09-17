@@ -1,4 +1,4 @@
-package com.github.jaczerob.madamchuckle.models.releasenotes;
+package com.github.jaczerob.madamchuckle.toontown.loaders.releasenotes.models;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

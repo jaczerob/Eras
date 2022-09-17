@@ -1,4 +1,4 @@
-package com.github.jaczerob.madamchuckle.models.population;
+package com.github.jaczerob.madamchuckle.toontown.loaders.population.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.github.jaczerob.madamchuckle.clients.ToontownClient;
-import com.github.jaczerob.madamchuckle.models.fieldoffice.FieldOffices;
-import com.github.jaczerob.madamchuckle.models.login.Authentication;
-import com.github.jaczerob.madamchuckle.models.login.LoginInfo;
-import com.github.jaczerob.madamchuckle.models.login.LoginResponse;
-import com.github.jaczerob.madamchuckle.models.login.QueueToken;
-import com.github.jaczerob.madamchuckle.models.news.News;
-import com.github.jaczerob.madamchuckle.models.population.Population;
-import com.github.jaczerob.madamchuckle.models.releasenotes.ReleaseNotes;
 import com.github.jaczerob.madamchuckle.services.CacheService;
+import com.github.jaczerob.madamchuckle.toontown.loaders.fieldoffices.models.FieldOffices;
+import com.github.jaczerob.madamchuckle.toontown.loaders.news.models.News;
+import com.github.jaczerob.madamchuckle.toontown.loaders.population.models.Population;
+import com.github.jaczerob.madamchuckle.toontown.loaders.releasenotes.models.ReleaseNotes;
+import com.github.jaczerob.madamchuckle.toontown.loaders.status.models.Status;
+import com.github.jaczerob.madamchuckle.toontown.models.login.Authentication;
+import com.github.jaczerob.madamchuckle.toontown.models.login.LoginInfo;
+import com.github.jaczerob.madamchuckle.toontown.models.login.LoginResponse;
+import com.github.jaczerob.madamchuckle.toontown.models.login.QueueToken;
 
 @RestController
 @RequestMapping("/api/toontown")
@@ -31,22 +32,27 @@ public class ToontownController {
     
     @GetMapping("/population")
     public ResponseEntity<Population> getPopulation() {
-        return ResponseEntity.ok(cache.getPopulation());
+        return ResponseEntity.ok((Population) cache.get("POPULATION"));
     }
 
     @GetMapping("/news")
     public ResponseEntity<News> getNews() {
-        return ResponseEntity.ok(cache.getNews());
+        return ResponseEntity.ok((News) cache.get("NEWS"));
     }
 
     @GetMapping("/releasenotes")
     public ResponseEntity<ReleaseNotes> getReleaseNotes() {
-        return ResponseEntity.ok(cache.getReleaseNotes());
+        return ResponseEntity.ok((ReleaseNotes) cache.get("RELEASE_NOTES"));
     }
 
     @GetMapping("/fieldoffices")
     public ResponseEntity<FieldOffices> getFieldOffices() {
-        return ResponseEntity.ok(cache.getFieldOffices());
+        return ResponseEntity.ok((FieldOffices) cache.get("FIELD_OFFICES"));
+    }
+    
+    @GetMapping("/status")
+    public ResponseEntity<Status> getStatus() {
+        return ResponseEntity.ok((Status) cache.get("STATUS"));
     }
 
     @PostMapping(value="/login", consumes=MediaType.APPLICATION_JSON_VALUE)

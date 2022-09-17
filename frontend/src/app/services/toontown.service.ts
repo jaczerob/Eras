@@ -7,6 +7,7 @@ import { News } from '../models/news';
 import { ReleaseNotes } from '../models/release-notes';
 import { FieldOffices } from '../models/field-offices';
 import { LoginInfo } from '../models/login-info';
+import { Status } from '../models/status';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,10 @@ export class ToontownService {
 
   public getFieldOffices(): Observable<FieldOffices> {
     return this.get<FieldOffices>('/fieldoffices');
+  }
+
+  public getStatus(): Observable<Status> {
+    return this.get<Status>('/status');
   }
 
   public login(username: string, password: string): Observable<LoginInfo> {

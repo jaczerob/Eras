@@ -1,6 +1,6 @@
-package com.github.jaczerob.madamchuckle.models.news;
+package com.github.jaczerob.madamchuckle.toontown.loaders.news.models;
 
-import com.github.jaczerob.madamchuckle.models.ToontownObject;
+import com.github.jaczerob.madamchuckle.toontown.models.ToontownObject;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
