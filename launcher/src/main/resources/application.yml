@@ -1,3 +1,5 @@
 micronaut:
+  server:
+    port: 4500
   application:
     name: launcher

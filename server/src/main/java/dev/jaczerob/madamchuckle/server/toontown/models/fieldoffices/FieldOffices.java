@@ -1,5 +1,6 @@
 package dev.jaczerob.madamchuckle.server.toontown.models.fieldoffices;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import dev.jaczerob.madamchuckle.server.toontown.models.ToontownObject;
 import lombok.Data;
@@ -38,10 +39,14 @@ public class FieldOffices extends ToontownObject {
         return zoneIDLookup.getOrDefault(entry.getKey(), "Zone Not Found");
     }
 
-    @JsonSetter("fieldOffices")
-    public void setFieldOffices(Map<String, FieldOffice> fieldOffices) {
-        Comparator<FieldOffice> comparator = Comparator.comparing(f -> f.getDifficulty());
-        comparator.thenComparing(f -> f.getAnnexes());
+    public FieldOffices(
+            @JsonProperty("lastUpdated") int lastUpdated,
+            @JsonProperty("fieldOffices") Map<String, FieldOffice> fieldOffices
+    ) {
+        this.lastUpdated = lastUpdated;
+
+        final var comparator = Comparator.comparing(FieldOffice::getDifficulty)
+                .thenComparing(FieldOffice::getAnnexes);
 
         this.fieldOffices = fieldOffices.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(comparator))

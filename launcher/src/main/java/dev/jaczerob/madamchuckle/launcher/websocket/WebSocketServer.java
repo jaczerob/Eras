@@ -9,32 +9,25 @@ import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@ServerWebSocket("/ws/toontown/{username}")
+@ServerWebSocket("/ws/toontown")
 public class WebSocketServer {
     private static final Logger LOG = LoggerFactory.getLogger(WebSocketServer.class);
 
     @OnOpen
-    public Publisher<String> onOpen(final String username, final WebSocketSession session) {
-        LOG.info("User {} connected", username);
-        return session.send("Hey, %s".formatted(username));
+    public Publisher<String> onOpen(final WebSocketSession session) {
+        LOG.info("User connected");
+        return session.send("Hey");
     }
 
     @OnMessage
-    public Publisher<String> onMessage(
-            final String username,
-            final String message,
-            final WebSocketSession session
-    ) {
-        LOG.info("onMessage: {} from {}", message, username);
-        return session.send("Welcome to TTR, %s".formatted(username));
+    public Publisher<String> onMessage(final String message, final WebSocketSession session) {
+        LOG.info("onMessage: {}", message);
+        return session.send("Welcome to TTR");
     }
 
     @OnClose
-    public Publisher<String> onClose(
-            final String username,
-            final WebSocketSession session
-    ) {
-        LOG.info("onClose from {}", username);
-        return session.send("Goodbye, %s".formatted(username));
+    public Publisher<String> onClose(final WebSocketSession session) {
+        LOG.info("onClose");
+        return session.send("Goodbye");
     }
 }

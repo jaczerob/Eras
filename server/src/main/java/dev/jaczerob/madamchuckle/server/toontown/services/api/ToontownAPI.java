@@ -8,6 +8,7 @@ import dev.jaczerob.madamchuckle.server.toontown.models.releasenotes.ReleaseNote
 import dev.jaczerob.madamchuckle.server.toontown.models.status.Status;
 import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface ToontownAPI {
     List<ReleaseNotesPartial> getReleaseNotes();
 
     @RequestMapping("/releasenotes/{id}")
-    ReleaseNotes getReleaseNotes(@Param("id") int id);
+    ReleaseNotes getReleaseNotes(@PathVariable("id") long id);
 
     @RequestMapping("/status")
     Status getStatus();
