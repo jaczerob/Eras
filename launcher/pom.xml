@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>dev.jaczerob.madamchuckle.launcher</groupId>
+    <groupId>dev.jaczerob.eras.launcher</groupId>
     <artifactId>launcher</artifactId>
     <version>0.1</version>
     <packaging>${packaging}</packaging>
@@ -19,8 +19,8 @@
         <micronaut.version>4.0.3</micronaut.version>
         <micronaut.runtime>netty</micronaut.runtime>
         <micronaut.aot.enabled>false</micronaut.aot.enabled>
-        <micronaut.aot.packageName>dev.jaczerob.madamchuckle.launcher.aot.generated</micronaut.aot.packageName>
-        <exec.mainClass>dev.jaczerob.madamchuckle.launcher.Application</exec.mainClass>
+        <micronaut.aot.packageName>dev.jaczerob.eras.launcher.aot.generated</micronaut.aot.packageName>
+        <exec.mainClass>dev.jaczerob.eras.launcher.Application</exec.mainClass>
     </properties>
 
     <repositories>
@@ -131,7 +131,7 @@
                         </path>
                     </annotationProcessorPaths>
                     <compilerArgs>
-                        <arg>-Amicronaut.processing.group=dev.jaczerob.madamchuckle.launcher</arg>
+                        <arg>-Amicronaut.processing.group=dev.jaczerob.eras.launcher</arg>
                         <arg>-Amicronaut.processing.module=launcher</arg>
                     </compilerArgs>
                 </configuration>
