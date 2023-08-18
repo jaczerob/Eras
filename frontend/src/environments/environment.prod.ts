@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://eras.jaczerob.dev:9000',
+  baseUrl: 'https://api.jaczerob.dev',
   headers: {
       'Content-Type': 'application/json'
   }
