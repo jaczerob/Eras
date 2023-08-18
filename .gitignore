@@ -78,3 +78,5 @@ build/
 ### Misc ###
 build.sh
 .angular/
+
+docker-compose.yml

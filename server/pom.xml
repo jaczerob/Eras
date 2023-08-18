@@ -26,10 +26,6 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>io.github.openfeign.form</groupId>
 			<artifactId>feign-form</artifactId>
 			<version>${feign-form.verison}</version>
@@ -113,6 +109,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>eras</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -5,7 +5,6 @@ import dev.jaczerob.eras.server.cache.CacheService;
 import dev.jaczerob.eras.server.districts.models.eras.Districts;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/districts")
-//@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class DistrictsController {
     private final CacheService cache;
 

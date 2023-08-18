@@ -41,7 +41,6 @@ export class ToontownService {
       environment.baseUrl + this.toontownUrl + endpoint,
       {
         headers: environment.headers,
-        withCredentials: environment.withCredentials
       }
     )
   }
