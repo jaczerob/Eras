@@ -1,7 +1,7 @@
 package dev.jaczerob.eras.server.toontown.models.fieldoffices;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import dev.jaczerob.eras.server.toontown.models.ToontownObject;
+import dev.jaczerob.eras.server.utils.ToontownObject;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

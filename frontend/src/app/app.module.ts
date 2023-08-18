@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PopulationComponent } from './components/population/population.component';
+import { DistrictsComponent } from './components/districts/districts.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewsComponent } from './components/news/news.component';
 import { ReleaseNotesComponent } from './components/release-notes/release-notes.component';
@@ -16,7 +16,7 @@ import { StatusComponent } from './components/status/status.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PopulationComponent,
+    DistrictsComponent,
     NavbarComponent,
     NewsComponent,
     ReleaseNotesComponent,

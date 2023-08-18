@@ -1,3 +1,5 @@
+import { Invasion } from "./invasion";
+
 export class District {
     public static OFFLINE = 'offline';
     public static ONLINE = 'online';
@@ -18,5 +20,6 @@ export class District {
         public name: string,
         public population: number,
         public status: string,
+        public invasion: Invasion | null,
     ) {}
 }

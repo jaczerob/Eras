@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Population } from '../models/population';
 import { environment } from 'src/environments/environment';
 import { News } from '../models/news';
 import { ReleaseNotes } from '../models/release-notes';
 import { FieldOffices } from '../models/field-offices';
 import { Status } from '../models/status';
+import { Districts } from '../models/districts';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,8 @@ export class ToontownService {
 
   constructor(private http: HttpClient) { }
 
-  public getPopulation(): Observable<Population> {
-    return this.get<Population>('/population');
+  public getDistricts(): Observable<Districts> {
+    return this.get<Districts>('/districts');
   }
 
   public getNews(): Observable<News> {

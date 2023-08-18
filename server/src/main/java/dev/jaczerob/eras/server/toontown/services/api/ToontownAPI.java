@@ -2,7 +2,6 @@ package dev.jaczerob.eras.server.toontown.services.api;
 
 import dev.jaczerob.eras.server.toontown.models.fieldoffices.FieldOffices;
 import dev.jaczerob.eras.server.toontown.models.news.News;
-import dev.jaczerob.eras.server.toontown.models.population.Population;
 import dev.jaczerob.eras.server.toontown.models.releasenotes.ReleaseNotes;
 import dev.jaczerob.eras.server.toontown.models.releasenotes.ReleaseNotesPartial;
 import dev.jaczerob.eras.server.toontown.models.status.Status;
@@ -25,9 +24,6 @@ public interface ToontownAPI {
 
     @RequestMapping("/status")
     Status getStatus();
-
-    @RequestMapping("/population")
-    Population getPopulation();
 
     @RequestMapping("/news")
     News getNews();

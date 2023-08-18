@@ -1,6 +1,6 @@
 package dev.jaczerob.eras.server.toontown.models.releasenotes;
 
-import dev.jaczerob.eras.server.toontown.models.ToontownObject;
+import dev.jaczerob.eras.server.utils.ToontownObject;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

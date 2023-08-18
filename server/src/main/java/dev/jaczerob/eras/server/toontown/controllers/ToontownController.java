@@ -1,32 +1,22 @@
 package dev.jaczerob.eras.server.toontown.controllers;
 
+import dev.jaczerob.eras.server.cache.CacheKey;
+import dev.jaczerob.eras.server.cache.CacheService;
 import dev.jaczerob.eras.server.toontown.models.fieldoffices.FieldOffices;
 import dev.jaczerob.eras.server.toontown.models.news.News;
-import dev.jaczerob.eras.server.toontown.models.population.Population;
 import dev.jaczerob.eras.server.toontown.models.releasenotes.ReleaseNotes;
 import dev.jaczerob.eras.server.toontown.models.status.Status;
-import dev.jaczerob.eras.server.toontown.services.cache.CacheKey;
-import dev.jaczerob.eras.server.toontown.services.cache.CacheService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/toontown")
-@CrossOrigin(origins = {"http://localhost:4200"}, allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class ToontownController {
     private final CacheService cache;
-
-    public ToontownController(final CacheService cache) {
-        this.cache = cache;
-    }
-
-    @GetMapping("/population")
-    public ResponseEntity<Population> getPopulation() {
-        return ResponseEntity.ok((Population) cache.get(CacheKey.Population));
-    }
 
     @GetMapping("/news")
     public ResponseEntity<News> getNews() {
