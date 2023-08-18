@@ -1,5 +1,5 @@
 create table if not exists districts (
-    id int generated always as identity,
+    id int not null auto_increment,
     population int,
     district varchar(32),
     status varchar(8),
@@ -8,7 +8,7 @@ create table if not exists districts (
 );
 
 create table if not exists invasions (
-    id int generated always as identity,
+    id int not null auto_increment,
     district varchar(32),
     cog varchar(32),
     total_cogs int,
@@ -17,7 +17,7 @@ create table if not exists invasions (
 );
 
 create table if not exists population (
-    id int generated always as identity,
+    id int not null auto_increment,
     population int,
     date timestamp,
     primary key (id)
