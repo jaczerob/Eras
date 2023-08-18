@@ -28,9 +28,8 @@ jobs:
       - name: Frontend uild and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: .
+          context: frontend
           file: ./frontend/Dockerfile
-          working-directory: ./frontend
           push: true
           tags: ${{ steps.meta-frontend.outputs.tags }}
           labels: ${{ steps.meta-frontend.outputs.labels }}
@@ -44,9 +43,8 @@ jobs:
       - name: Server build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: .
+          context: server
           file: ./server/Dockerfile
-          working-directory: ./server
           push: true
           tags: ${{ steps.meta-server.outputs.tags }}
           labels: ${{ steps.meta-server.outputs.labels }}
