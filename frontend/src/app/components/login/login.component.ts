@@ -1,6 +1,7 @@
-import { Buffer } from "buffer";
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Status } from "src/app/models/status";
+import { ToontownService } from "src/app/services/toontown.service";
 
 @Component({
   selector: 'app-login',
@@ -8,10 +9,18 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  status!: Status;
+
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
   })
+
+  constructor(private toontown: ToontownService) { }
+
+  ngOnInit(): void {
+    this.toontown.getStatus().subscribe((status) => this.status = status);
+  }
 
   get username() {
     return this.loginForm.get('username')?.value || '';
@@ -22,30 +31,6 @@ export class LoginComponent {
   }
   
   onSubmit(): void {
-    if (this.username === '' || this.password === '') {
-      alert('Please enter a username and password.');
-      return;
-    }
-
-    const username = this.username
-    const password = this.password
-
-    const socket = new WebSocket('ws://localhost:4500/ws/toontown');
-    socket.onmessage = function (msg) {
-      console.log('message from ws: %s', msg.data)
-    }
-
-    socket.onclose = function (ev) {
-      console.log('socket connection closed')
-    }
-    
-    socket.onopen = function (_) {
-      console.log('socket connection opened')
-
-      const encryptedDetails = Buffer.from(`${username}:${password}`).toString('base64')
-      socket.send(encryptedDetails)
-
-      socket.close()
-    }
+    open('toontown://')
   }
 }

@@ -11,7 +11,6 @@ import { ReleaseNotesComponent } from './components/release-notes/release-notes.
 import { LoginComponent } from './components/login/login.component';
 import { FieldOfficesComponent } from './components/field-offices/field-offices.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { StatusComponent } from './components/status/status.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { StatusComponent } from './components/status/status.component';
     ReleaseNotesComponent,
     LoginComponent,
     FieldOfficesComponent,
-    StatusComponent
   ],
   imports: [
     BrowserModule,

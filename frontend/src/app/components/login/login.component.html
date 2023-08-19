@@ -1,9 +1,14 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title text-center align-middle">
-                Play Toontown
+            <h5 *ngIf="status.open;else not_open" class="card-title text-center align-middle">
+                Toontown is open!
             </h5>
+            <ng-template #not_open>
+                <h5 class="card-title text-center align-middle">
+                    Toontown is closed!
+                </h5>
+            </ng-template>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -13,7 +18,7 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Enter password" formControlName="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Play</button>
             </form>
         </div>
     </div>

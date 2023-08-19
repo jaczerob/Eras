@@ -7,16 +7,16 @@
             <div class="container">
                 <div *ngFor="let district of districts.districts">
                     <div class="row gx-3">
-                        <div class="col-md-auto">
+                        <div class="col-md-7">
                             <i [ngStyle]="{ 'color': getColor(district) }" class="fa fa-circle" aria-hidden="true"></i> {{ district.name }}
-                            
-                            <div class="col-md-auto" style="float:right" *ngIf="district.invasion !== null">
-                                <img *ngIf="district.invasion !== null" style="width: 1em;" src="https://toonhq.org/static/assets/cogs/{{district.invasion.cog.toLowerCase().replace(' ', '_')}}.png">
-                            </div>
                         </div>
-                        
-                        <div class="col text-end">
+
+                        <div class="col">
                             {{ district.population }}
+                        </div>
+
+                        <div class="col text-end" style="float:right" *ngIf="district.invasion !== null">
+                            <img *ngIf="district.invasion !== null" style="width: 1em;" src="https://toonhq.org/static/assets/cogs/{{district.invasion.cog.toLowerCase().replace(' ', '_')}}.png">
                         </div>
                     </div>
                 </div>
