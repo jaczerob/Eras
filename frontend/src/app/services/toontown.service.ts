@@ -7,6 +7,7 @@ import { ReleaseNotes } from '../models/release-notes';
 import { FieldOffices } from '../models/field-offices';
 import { Status } from '../models/status';
 import { Districts } from '../models/districts';
+import { ToonStats } from '../models/toonstats';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class ToontownService {
   private toontownUrl: string = '/api/toontown'
 
   constructor(private http: HttpClient) { }
+
+  public getToonStats(): Observable<ToonStats> {
+    return this.get<ToonStats>('/toonstats');
+  }
 
   public getDistricts(): Observable<Districts> {
     return this.get<Districts>('/districts');

@@ -5,5 +5,6 @@ public enum CacheKey {
     ReleaseNotes,
     Status,
     News,
-    Districts
+    Districts,
+    ToonStats
 }

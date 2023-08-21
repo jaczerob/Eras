@@ -80,3 +80,4 @@ build.sh
 .angular/
 
 docker-compose.yml
+Justfile
