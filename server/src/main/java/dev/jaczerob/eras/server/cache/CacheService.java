@@ -4,6 +4,8 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import dev.jaczerob.eras.server.districts.services.DistrictService;
+import dev.jaczerob.eras.server.toonstats.services.ToonScrapingService;
+import dev.jaczerob.eras.server.toonstats.services.ToonStatsService;
 import dev.jaczerob.eras.server.toontown.models.releasenotes.ReleaseNotesPartial;
 import dev.jaczerob.eras.server.toontown.services.api.ToontownAPI;
 import dev.jaczerob.eras.server.utils.ToontownObject;
@@ -24,6 +26,7 @@ public class CacheService {
 
     private final ToontownAPI toontownAPI;
     private final DistrictService districtService;
+    private final ToonStatsService toonStatsService;
 
     private final LoadingCache<CacheKey, ToontownObject> cache = CacheBuilder.newBuilder()
             .expireAfterWrite(60, TimeUnit.SECONDS)
@@ -40,6 +43,7 @@ public class CacheService {
                                     yield toontownAPI.getReleaseNotes(releaseNotes.get(0).getNoteId());
                                 }
                                 case News -> toontownAPI.getNews();
+                                case ToonStats -> toonStatsService.getToonStats();
                             };
                         }
                     }

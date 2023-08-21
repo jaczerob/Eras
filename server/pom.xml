@@ -20,11 +20,17 @@
 
 		<feign-form.verison>3.8.0</feign-form.verison>
 		<guava.version>31.1-jre</guava.version>
+		<jsoup.version>1.16.1</jsoup.version>
 		<mysql-connector-j.version>8.1.0</mysql-connector-j.version>
 		<snakeyaml.version>2.0</snakeyaml.version>
 		<spring-cloud.version>2022.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>${jsoup.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>io.github.openfeign.form</groupId>
 			<artifactId>feign-form</artifactId>

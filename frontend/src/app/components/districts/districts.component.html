@@ -2,21 +2,17 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title text-center align-middle">
-                Population ({{ districts.totalPopulation }})
+                Total Toons: {{ districts.totalPopulation }}
             </h5>
             <div class="container">
                 <div *ngFor="let district of districts.districts">
-                    <div class="row gx-3">
-                        <div class="col-md-7">
+                    <div class="row" style="width: 100%;">
+                        <div class="col">
                             <i [ngStyle]="{ 'color': getColor(district) }" class="fa fa-circle" aria-hidden="true"></i> {{ district.name }}
                         </div>
 
                         <div class="col">
                             {{ district.population }}
-                        </div>
-
-                        <div class="col text-end" style="float:right" *ngIf="district.invasion !== null">
-                            <img *ngIf="district.invasion !== null" style="width: 1em;" src="https://toonhq.org/static/assets/cogs/{{district.invasion.cog.toLowerCase().replace(' ', '_')}}.png">
                         </div>
                     </div>
                 </div>

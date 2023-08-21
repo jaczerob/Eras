@@ -11,6 +11,7 @@ import { ReleaseNotesComponent } from './components/release-notes/release-notes.
 import { LoginComponent } from './components/login/login.component';
 import { FieldOfficesComponent } from './components/field-offices/field-offices.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToonStatsComponent } from './components/toonstats/toonstats.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReleaseNotesComponent,
     LoginComponent,
     FieldOfficesComponent,
+    ToonStatsComponent,
   ],
   imports: [
     BrowserModule,
