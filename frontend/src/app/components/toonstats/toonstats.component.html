@@ -1,220 +1,226 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title text-center align-middle">
-                ToonStats
-            </h5>
-            <h6 class="card-title text-center align-middle">
-                Sample Size: {{ toonstats.amountToons }}
-                (Scraped from ToonSync)
-            </h6>
+          <h5 class="card-title text-center align-middle">
+              ToonStats
+          </h5>
+
+          <div>
+            <p class="text-left align-left">
+              Sample Size: {{ toonstats.amountToons }}<br>
+              Toons Above 100 Laff: {{ toonstats.amountToonsAbove100Laff }} ({{ ((toonstats.amountToonsAbove100Laff / toonstats.amountToons) * 100).toFixed(2) }}%)<br>
+              Maxed Toons: {{ toonstats.amountToonsMaxed }} ({{ ((toonstats.amountToonsMaxed / toonstats.amountToons) * 100).toFixed(2) }}%)<br>
+              <small>(Scraped from ToonHQ ToonSync)</small>
+            </p>
+          </div>
+
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Species</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Amount 100+ Laff</th>
+                  <th scope="col">Amount Maxed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Cat</th>
+                  <td>{{ toonstats.amountCats }} ({{ ((toonstats.amountCats / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountCatsAbove100Laff }} ({{ ((toonstats.amountCatsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountCatsMaxed }} ({{ ((toonstats.amountCatsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Dog</th>
+                  <td>{{ toonstats.amountDogs }} ({{ ((toonstats.amountDogs / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDogsAbove100Laff }} ({{ ((toonstats.amountDogsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDogsMaxed }} ({{ ((toonstats.amountDogsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Mice</th>
+                  <td>{{ toonstats.amountMice }} ({{ ((toonstats.amountMice / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountMiceAbove100Laff }} ({{ ((toonstats.amountMiceAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountMiceMaxed }} ({{ ((toonstats.amountMiceMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Ducks</th>
+                  <td>{{ toonstats.amountDucks }} ({{ ((toonstats.amountDucks / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDucksAbove100Laff }} ({{ ((toonstats.amountDucksAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDucksMaxed }} ({{ ((toonstats.amountDucksMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Deer</th>
+                  <td>{{ toonstats.amountDeer }} ({{ ((toonstats.amountDeer / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDeerAbove100Laff }} ({{ ((toonstats.amountDeerAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDeerMaxed }} ({{ ((toonstats.amountDeerMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Rabbits</th>
+                  <td>{{ toonstats.amountRabbits }} ({{ ((toonstats.amountRabbits / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountRabbitsAbove100Laff }} ({{ ((toonstats.amountRabbitsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountRabbitsMaxed }} ({{ ((toonstats.amountRabbitsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Bears</th>
+                  <td>{{ toonstats.amountBears }} ({{ ((toonstats.amountBears / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountBearsAbove100Laff }} ({{ ((toonstats.amountBearsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountBearsMaxed }} ({{ ((toonstats.amountBearsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Monkeys</th>
+                  <td>{{ toonstats.amountMonkeys }} ({{ ((toonstats.amountMonkeys / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountMonkeysAbove100Laff }} ({{ ((toonstats.amountMonkeysAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountMonkeysMaxed }} ({{ ((toonstats.amountMonkeysMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Crocodiles</th>
+                  <td>{{ toonstats.amountCrocodiles }} ({{ ((toonstats.amountCrocodiles / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountCrocodilesAbove100Laff }} ({{ ((toonstats.amountCrocodilesAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountCrocodilesMaxed }} ({{ ((toonstats.amountCrocodilesMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Pigs</th>
+                  <td>{{ toonstats.amountPigs }} ({{ ((toonstats.amountPigs / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountPigsAbove100Laff }} ({{ ((toonstats.amountPigsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountPigsMaxed }} ({{ ((toonstats.amountPigsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Horses</th>
+                  <td>{{ toonstats.amountHorses }} ({{ ((toonstats.amountHorses / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountHorsesAbove100Laff }} ({{ ((toonstats.amountHorsesAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountHorsesMaxed }} ({{ ((toonstats.amountHorsesMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+          </table>
+
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Gag</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Amount 100+ Laff</th>
+                  <th scope="col">Amount Maxed</th>
+                  <th scope="col">Amount Organic</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Toon-Up</th>
+                  <td>{{ toonstats.amountToonsWithToonUp }} ({{ ((toonstats.amountToonsWithToonUp / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithToonUpAbove100Laff }} ({{ ((toonstats.amountToonsWithToonUpAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithToonUpMaxed }} ({{ ((toonstats.amountToonsWithToonUpMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountOrganicToonUp }} ({{ ((toonstats.amountOrganicToonUp / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <tr>
+                    <th scope="row">Trap</th>
+                    <td>{{ toonstats.amountToonsWithTrap }} ({{ ((toonstats.amountToonsWithTrap / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                    <td>{{ toonstats.amountToonsWithTrapAbove100Laff }} ({{ ((toonstats.amountToonsWithTrapAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                    <td>{{ toonstats.amountToonsWithTrapMaxed }} ({{ ((toonstats.amountToonsWithTrapMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                    <td>{{ toonstats.amountOrganicTrap }} ({{ ((toonstats.amountOrganicTrap / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Lure</th>
+                  <td>{{ toonstats.amountToonsWithLure }} ({{ ((toonstats.amountToonsWithLure / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithLureAbove100Laff }} ({{ ((toonstats.amountToonsWithLureAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithLureMaxed }} ({{ ((toonstats.amountToonsWithLureMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountOrganicLure }} ({{ ((toonstats.amountOrganicLure / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Sound</th>
+                  <td>{{ toonstats.amountToonsWithSound }} ({{ ((toonstats.amountToonsWithSound / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithSoundAbove100Laff }} ({{ ((toonstats.amountToonsWithSoundAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithSoundMaxed }} ({{ ((toonstats.amountToonsWithSoundMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountOrganicSound }} ({{ ((toonstats.amountOrganicSound / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Throw</th>
+                  <td>{{ toonstats.amountToonsWithThrow }} ({{ ((toonstats.amountToonsWithThrow / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithThrowAbove100Laff }} ({{ ((toonstats.amountToonsWithThrowAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithThrowMaxed }} ({{ ((toonstats.amountToonsWithThrowMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountOrganicThrow }} ({{ ((toonstats.amountOrganicThrow / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Squirt</th>
+                  <td>{{ toonstats.amountToonsWithSquirt }} ({{ ((toonstats.amountToonsWithSquirt / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithSquirtAbove100Laff }} ({{ ((toonstats.amountToonsWithSquirtAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithSquirtMaxed }} ({{ ((toonstats.amountToonsWithSquirtMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountOrganicSquirt }} ({{ ((toonstats.amountOrganicSquirt / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Drop</th>
+                  <td>{{ toonstats.amountToonsWithDrop }} ({{ ((toonstats.amountToonsWithDrop / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithDropAbove100Laff }} ({{ ((toonstats.amountToonsWithDropAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithDropMaxed }} ({{ ((toonstats.amountToonsWithDropMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountOrganicDrop }} ({{ ((toonstats.amountOrganicDrop / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                </tr>
+              </tbody>
+          </table>
+
+          <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Tier 8 Cog Suit</th>
+                  <th scope="col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Sellbot</th>
+                  <td>{{ toonstats.amountTier8Sellbot }}</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Cashbot</th>
+                  <td>{{ toonstats.amountTier8Cashbot }}</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Lawbot</th>
+                  <td>{{ toonstats.amountTier8Lawbot }}</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <th scope="row">Bossbot</th>
+                  <td>{{ toonstats.amountTier8Bossbot }}</td>
+                </tr>
+              </tbody>
+          </table>
         </div>
-
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Species</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Amount 100+ Laff</th>
-                <th scope="col">Amount Maxed</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Cat</th>
-                <td>{{ toonstats.amountCats }}</td>
-                <td>{{ toonstats.amountCatsAbove100Laff }}</td>
-                <td>{{ toonstats.amountCatsMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Dog</th>
-                <td>{{ toonstats.amountDogs }}</td>
-                <td>{{ toonstats.amountDogsAbove100Laff }}</td>
-                <td>{{ toonstats.amountDogsMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Mice</th>
-                <td>{{ toonstats.amountMice }}</td>
-                <td>{{ toonstats.amountMiceAbove100Laff }}</td>
-                <td>{{ toonstats.amountMiceMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Ducks</th>
-                <td>{{ toonstats.amountDucks }}</td>
-                <td>{{ toonstats.amountDucksAbove100Laff }}</td>
-                <td>{{ toonstats.amountDucksMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Deer</th>
-                <td>{{ toonstats.amountDeer }}</td>
-                <td>{{ toonstats.amountDeerAbove100Laff }}</td>
-                <td>{{ toonstats.amountDeerMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Rabbits</th>
-                <td>{{ toonstats.amountRabbits }}</td>
-                <td>{{ toonstats.amountRabbitsAbove100Laff }}</td>
-                <td>{{ toonstats.amountRabbitsMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Bears</th>
-                <td>{{ toonstats.amountBears }}</td>
-                <td>{{ toonstats.amountBearsAbove100Laff }}</td>
-                <td>{{ toonstats.amountBearsMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Monkeys</th>
-                <td>{{ toonstats.amountMonkeys }}</td>
-                <td>{{ toonstats.amountMonkeysAbove100Laff }}</td>
-                <td>{{ toonstats.amountMonkeysMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Horses</th>
-                <td>{{ toonstats.amountHorses }}</td>
-                <td>{{ toonstats.amountHorsesAbove100Laff }}</td>
-                <td>{{ toonstats.amountHorsesMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Pigs</th>
-                <td>{{ toonstats.amountPigs }}</td>
-                <td>{{ toonstats.amountPigsAbove100Laff }}</td>
-                <td>{{ toonstats.amountPigsMaxed }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Crocodiles</th>
-                <td>{{ toonstats.amountCrocodiles }}</td>
-                <td>{{ toonstats.amountCrocodilesAbove100Laff }}</td>
-                <td>{{ toonstats.amountCrocodilesMaxed }}</td>
-              </tr>
-            </tbody>
-        </table>
-
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Gag</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Amount 100+ Laff</th>
-                <th scope="col">Amount Maxed</th>
-                <th scope="col">Amount Organic</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Toon-Up</th>
-                <td>{{ toonstats.amountToonsWithToonUp }}</td>
-                <td>{{ toonstats.amountToonsWithToonUpAbove100Laff }}</td>
-                <td>{{ toonstats.amountToonsWithToonUpMaxed }}</td>
-                <td>{{ toonstats.amountOrganicToonUp }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Trap</th>
-                <td>{{ toonstats.amountToonsWithTrap }}</td>
-                <td>{{ toonstats.amountToonsWithTrapAbove100Laff }}</td>
-                <td>{{ toonstats.amountToonsWithTrapMaxed }}</td>
-                <td>{{ toonstats.amountOrganicTrap }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Lure</th>
-                <td>{{ toonstats.amountToonsWithLure }}</td>
-                <td>{{ toonstats.amountToonsWithLureAbove100Laff }}</td>
-                <td>{{ toonstats.amountToonsWithLureMaxed }}</td>
-                <td>{{ toonstats.amountOrganicLure }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Sound</th>
-                <td>{{ toonstats.amountToonsWithSound }}</td>
-                <td>{{ toonstats.amountToonsWithSoundAbove100Laff }}</td>
-                <td>{{ toonstats.amountToonsWithSoundMaxed }}</td>
-                <td>{{ toonstats.amountOrganicSound }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Throw</th>
-                <td>{{ toonstats.amountToonsWithThrow }}</td>
-                <td>{{ toonstats.amountToonsWithThrowAbove100Laff }}</td>
-                <td>{{ toonstats.amountToonsWithThrowMaxed }}</td>
-                <td>{{ toonstats.amountOrganicThrow }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Squirt</th>
-                <td>{{ toonstats.amountToonsWithSquirt }}</td>
-                <td>{{ toonstats.amountToonsWithSquirtAbove100Laff }}</td>
-                <td>{{ toonstats.amountToonsWithSquirtMaxed }}</td>
-                <td>{{ toonstats.amountOrganicSquirt }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Drop</th>
-                <td>{{ toonstats.amountToonsWithDrop }}</td>
-                <td>{{ toonstats.amountToonsWithDropAbove100Laff }}</td>
-                <td>{{ toonstats.amountToonsWithDropMaxed }}</td>
-                <td>{{ toonstats.amountOrganicDrop }}</td>
-              </tr>
-            </tbody>
-        </table>
-
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Tier 8 Cog Suit</th>
-                <th scope="col">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Sellbot</th>
-                <td>{{ toonstats.amountTier8Sellbot }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Cashbot</th>
-                <td>{{ toonstats.amountTier8Cashbot }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Lawbot</th>
-                <td>{{ toonstats.amountTier8Lawbot }}</td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <th scope="row">Bossbot</th>
-                <td>{{ toonstats.amountTier8Bossbot }}</td>
-              </tr>
-            </tbody>
-        </table>
     </div>
 </div>
