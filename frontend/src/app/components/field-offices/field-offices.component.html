@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container placeholder-glow">
   <h3 class="text-center align-middle">
     Field Offices
   </h3>
-  <div class="row gy-3">
-    <div *ngFor="let fieldOffice of fieldOffices.fieldOffices| keyvalue" class="list-group">
-      <div class="col card">
+  <div class="row gy-3 container-fluid" [ngClass]="{ 'placeholder': fieldOffices == null }">
+    <div *ngFor="let fieldOffice of fieldOfficesMap | keyvalue" class="list-group">
+      <div class="card container-fluid">
         <div class="card-body">
           <h5 class="card-title">{{fieldOffice.key}} <i *ngFor="let i of ' '.repeat(fieldOffice.value.difficulty).split('')" class="fa fa-star" aria-hidden="true" style="color: gold;"></i></h5>
           <div *ngIf="fieldOffice.value.open; else closing" class="card-text">

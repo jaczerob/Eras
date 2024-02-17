@@ -10,7 +10,8 @@ import { ToontownService } from 'src/app/services/toontown.service';
   styleUrls: ['./districts.component.css']
 })
 export class DistrictsComponent implements OnInit {
-  districts!: Districts
+  districts: Districts | null = null;
+  districtsArr: District[] = [];
 
   constructor(private toontownService: ToontownService) { }
 
@@ -18,6 +19,7 @@ export class DistrictsComponent implements OnInit {
     this.toontownService.getDistricts().subscribe((districts) => {
       districts.districts.sort(function(a, b) { return b.population - a.population; });
       this.districts = districts;
+      this.districtsArr = districts.districts;
     });
   }
 

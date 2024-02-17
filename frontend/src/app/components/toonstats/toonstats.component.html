@@ -1,28 +1,24 @@
-<div class="container">
+<div class="container placeholder-glow">
     <div class="card">
       <div class="card-body text-center align-middle">
         <h5>ToonStats</h5>
       </div>
-        <div class="card-body">
-          <div>
-            <p class="text-left align-left">
-              Sample Size: {{ toonstats.amountToons }}<br>
-              Toons Above 100 Laff: {{ toonstats.amountToonsAbove100Laff }} ({{ ((toonstats.amountToonsAbove100Laff / toonstats.amountToons) * 100).toFixed(2) }}%)<br>
-              Maxed Toons: {{ toonstats.amountToonsMaxed }} ({{ ((toonstats.amountToonsMaxed / toonstats.amountToons) * 100).toFixed(2) }}%)<br>
-              <small>(Scraped from ToonHQ ToonSync)</small>
-            </p>
-          </div>
+        <div class="card-body" >
+          <p class="text-left align-left">
+            Sample Size: <span class="col-2" [ngClass]="{'placeholder': toonstats == null}">{{ toonstats?.amountToons }}</span><br>
+            Toons Above 100 Laff: <span class="col-2" [ngClass]="{'placeholder': toonstats == null}">{{ toonstats?.amountToonsAbove100Laff }} ({{ getPercent(toonstats?.amountToonsAbove100Laff, toonstats?.amountToons) }})</span><br>
+            Maxed Toons: <span class="col-2" [ngClass]="{'placeholder': toonstats == null}">{{ toonstats?.amountToonsMaxed }} ({{ getPercent(toonstats?.amountToonsMaxed, toonstats?.amountToons) }})</span><br>
+            <small>(Scraped from ToonHQ ToonSync)</small>
+          </p>
         </div>
     </div>
-
   <br>
-
-  <div class="card">
+  <div class="card container-fluid" [ngClass]="{'placeholder': toonstats == null}">
     <div class="card-body text-center align-middle">
       <h5>Species</h5>
     </div>
       <div class="card-body">
-          <table class="table">
+          <table class="table" *ngIf="toonstats != null">
               <thead>
                 <tr>
                   <th scope="col">Species</th>
@@ -34,101 +30,101 @@
               <tbody>
                 <tr>
                   <th scope="row">Cat</th>
-                  <td>{{ toonstats.amountCats }} ({{ ((toonstats.amountCats / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountCatsAbove100Laff }} ({{ ((toonstats.amountCatsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountCatsMaxed }} ({{ ((toonstats.amountCatsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountCats }} ({{ getPercent(toonstats.amountCats, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountCatsAbove100Laff }} ({{ getPercent(toonstats.amountCatsAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountCatsMaxed }} ({{ getPercent(toonstats.amountCatsMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Dog</th>
-                  <td>{{ toonstats.amountDogs }} ({{ ((toonstats.amountDogs / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountDogsAbove100Laff }} ({{ ((toonstats.amountDogsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountDogsMaxed }} ({{ ((toonstats.amountDogsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDogs }} ({{ getPercent(toonstats.amountDogs, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountDogsAbove100Laff }} ({{ getPercent(toonstats.amountDogsAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountDogsMaxed }} ({{ getPercent(toonstats.amountDogsMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Mice</th>
-                  <td>{{ toonstats.amountMice }} ({{ ((toonstats.amountMice / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountMiceAbove100Laff }} ({{ ((toonstats.amountMiceAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountMiceMaxed }} ({{ ((toonstats.amountMiceMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountMice }} ({{ getPercent(toonstats.amountMice, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountMiceAbove100Laff }} ({{ getPercent(toonstats.amountMiceAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountMiceMaxed }} ({{ getPercent(toonstats.amountMiceMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Ducks</th>
-                  <td>{{ toonstats.amountDucks }} ({{ ((toonstats.amountDucks / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountDucksAbove100Laff }} ({{ ((toonstats.amountDucksAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountDucksMaxed }} ({{ ((toonstats.amountDucksMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDucks }} ({{ getPercent(toonstats.amountDucks, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountDucksAbove100Laff }} ({{ getPercent(toonstats.amountDucksAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountDucksMaxed }} ({{ getPercent(toonstats.amountDucksMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Deer</th>
-                  <td>{{ toonstats.amountDeer }} ({{ ((toonstats.amountDeer / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountDeerAbove100Laff }} ({{ ((toonstats.amountDeerAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountDeerMaxed }} ({{ ((toonstats.amountDeerMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountDeer }} ({{ getPercent(toonstats.amountDeer, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountDeerAbove100Laff }} ({{ getPercent(toonstats.amountDeerAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountDeerMaxed }} ({{ getPercent(toonstats.amountDeerMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Rabbits</th>
-                  <td>{{ toonstats.amountRabbits }} ({{ ((toonstats.amountRabbits / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountRabbitsAbove100Laff }} ({{ ((toonstats.amountRabbitsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountRabbitsMaxed }} ({{ ((toonstats.amountRabbitsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountRabbits }} ({{ getPercent(toonstats.amountRabbits, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountRabbitsAbove100Laff }} ({{ getPercent(toonstats.amountRabbitsAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountRabbitsMaxed }} ({{ getPercent(toonstats.amountRabbitsMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Bears</th>
-                  <td>{{ toonstats.amountBears }} ({{ ((toonstats.amountBears / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountBearsAbove100Laff }} ({{ ((toonstats.amountBearsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountBearsMaxed }} ({{ ((toonstats.amountBearsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountBears }} ({{ getPercent(toonstats.amountBears, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountBearsAbove100Laff }} ({{ getPercent(toonstats.amountBearsAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountBearsMaxed }} ({{ getPercent(toonstats.amountBearsMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Monkeys</th>
-                  <td>{{ toonstats.amountMonkeys }} ({{ ((toonstats.amountMonkeys / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountMonkeysAbove100Laff }} ({{ ((toonstats.amountMonkeysAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountMonkeysMaxed }} ({{ ((toonstats.amountMonkeysMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountMonkeys }} ({{ getPercent(toonstats.amountMonkeys, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountMonkeysAbove100Laff }} ({{ getPercent(toonstats.amountMonkeysAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountMonkeysMaxed }} ({{ getPercent(toonstats.amountMonkeysMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Crocodiles</th>
-                  <td>{{ toonstats.amountCrocodiles }} ({{ ((toonstats.amountCrocodiles / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountCrocodilesAbove100Laff }} ({{ ((toonstats.amountCrocodilesAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountCrocodilesMaxed }} ({{ ((toonstats.amountCrocodilesMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountCrocodiles }} ({{ getPercent(toonstats.amountCrocodiles, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountCrocodilesAbove100Laff }} ({{ getPercent(toonstats.amountCrocodilesAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountCrocodilesMaxed }} ({{ getPercent(toonstats.amountCrocodilesMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Pigs</th>
-                  <td>{{ toonstats.amountPigs }} ({{ ((toonstats.amountPigs / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountPigsAbove100Laff }} ({{ ((toonstats.amountPigsAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountPigsMaxed }} ({{ ((toonstats.amountPigsMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountPigs }} ({{ getPercent(toonstats.amountPigs, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountPigsAbove100Laff }} ({{ getPercent(toonstats.amountPigsAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountPigsMaxed }} ({{ getPercent(toonstats.amountPigsMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Horses</th>
-                  <td>{{ toonstats.amountHorses }} ({{ ((toonstats.amountHorses / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountHorsesAbove100Laff }} ({{ ((toonstats.amountHorsesAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountHorsesMaxed }} ({{ ((toonstats.amountHorsesMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountHorses }} ({{ getPercent(toonstats.amountHorses, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountHorsesAbove100Laff }} ({{ getPercent(toonstats.amountHorsesAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountHorsesMaxed }} ({{ getPercent(toonstats.amountHorsesMaxed, toonstats.amountToonsMaxed) }})</td>
                 </tr>
               </tbody>
           </table>
       </div>
   </div>
   <br>
-  <div class="card">
+  <div class="card container-fluid" [ngClass]="{'placeholder': toonstats == null}">
     <div class="card-body text-center align-middle">
       <h5>Gags</h5>
     </div>
       <div class="card-body">
-          <table class="table">
+        <table class="table" *ngIf="toonstats != null">
               <thead>
                 <tr>
                   <th scope="col">Gag</th>
@@ -141,65 +137,65 @@
               <tbody>
                 <tr>
                   <th scope="row">Toon-Up</th>
-                  <td>{{ toonstats.amountToonsWithToonUp }} ({{ ((toonstats.amountToonsWithToonUp / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithToonUpAbove100Laff }} ({{ ((toonstats.amountToonsWithToonUpAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithToonUpMaxed }} ({{ ((toonstats.amountToonsWithToonUpMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountOrganicToonUp }} ({{ ((toonstats.amountOrganicToonUp / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithToonUp }} ({{ getPercent(toonstats.amountToonsWithToonUp, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountToonsWithToonUpAbove100Laff }} ({{ getPercent(toonstats.amountToonsWithToonUpAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountToonsWithToonUpMaxed }} ({{ getPercent(toonstats.amountToonsWithToonUpMaxed, toonstats.amountToonsMaxed) }})</td>
+                  <td>{{ toonstats.amountOrganicToonUp }} ({{ getPercent(toonstats.amountOrganicToonUp, toonstats.amountToons) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <tr>
                     <th scope="row">Trap</th>
-                    <td>{{ toonstats.amountToonsWithTrap }} ({{ ((toonstats.amountToonsWithTrap / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                    <td>{{ toonstats.amountToonsWithTrapAbove100Laff }} ({{ ((toonstats.amountToonsWithTrapAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                    <td>{{ toonstats.amountToonsWithTrapMaxed }} ({{ ((toonstats.amountToonsWithTrapMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
-                    <td>{{ toonstats.amountOrganicTrap }} ({{ ((toonstats.amountOrganicTrap / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                    <td>{{ toonstats.amountToonsWithTrap }} ({{ getPercent(toonstats.amountToonsWithTrap, toonstats.amountToons) }})</td>
+                    <td>{{ toonstats.amountToonsWithTrapAbove100Laff }} ({{ getPercent(toonstats.amountToonsWithTrapAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                    <td>{{ toonstats.amountToonsWithTrapMaxed }} ({{ getPercent(toonstats.amountToonsWithTrapMaxed, toonstats.amountToonsMaxed) }})</td>
+                    <td>{{ toonstats.amountOrganicTrap }} ({{ getPercent(toonstats.amountOrganicTrap, toonstats.amountToons) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Lure</th>
-                  <td>{{ toonstats.amountToonsWithLure }} ({{ ((toonstats.amountToonsWithLure / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithLureAbove100Laff }} ({{ ((toonstats.amountToonsWithLureAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithLureMaxed }} ({{ ((toonstats.amountToonsWithLureMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountOrganicLure }} ({{ ((toonstats.amountOrganicLure / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithLure }} ({{ getPercent(toonstats.amountToonsWithLure, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountToonsWithLureAbove100Laff }} ({{ getPercent(toonstats.amountToonsWithLureAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountToonsWithLureMaxed }} ({{ getPercent(toonstats.amountToonsWithLureMaxed, toonstats.amountToonsMaxed) }})</td>
+                  <td>{{ toonstats.amountOrganicLure }} ({{ getPercent(toonstats.amountOrganicLure, toonstats.amountToons) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Sound</th>
-                  <td>{{ toonstats.amountToonsWithSound }} ({{ ((toonstats.amountToonsWithSound / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithSoundAbove100Laff }} ({{ ((toonstats.amountToonsWithSoundAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithSoundMaxed }} ({{ ((toonstats.amountToonsWithSoundMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountOrganicSound }} ({{ ((toonstats.amountOrganicSound / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithSound }} ({{ getPercent(toonstats.amountToonsWithSound, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountToonsWithSoundAbove100Laff }} ({{ getPercent(toonstats.amountToonsWithSoundAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountToonsWithSoundMaxed }} ({{ getPercent(toonstats.amountToonsWithSoundMaxed, toonstats.amountToonsMaxed) }})</td>
+                  <td>{{ toonstats.amountOrganicSound }} ({{ getPercent(toonstats.amountOrganicSound, toonstats.amountToons) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Throw</th>
-                  <td>{{ toonstats.amountToonsWithThrow }} ({{ ((toonstats.amountToonsWithThrow / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithThrowAbove100Laff }} ({{ ((toonstats.amountToonsWithThrowAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithThrowMaxed }} ({{ ((toonstats.amountToonsWithThrowMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountOrganicThrow }} ({{ ((toonstats.amountOrganicThrow / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithThrow }} ({{ getPercent(toonstats.amountToonsWithThrow, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountToonsWithThrowAbove100Laff }} ({{ getPercent(toonstats.amountToonsWithThrowAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountToonsWithThrowMaxed }} ({{ getPercent(toonstats.amountToonsWithThrowMaxed, toonstats.amountToonsMaxed) }})</td>
+                  <td>{{ toonstats.amountOrganicThrow }} ({{ getPercent(toonstats.amountOrganicThrow, toonstats.amountToons) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Squirt</th>
-                  <td>{{ toonstats.amountToonsWithSquirt }} ({{ ((toonstats.amountToonsWithSquirt / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithSquirtAbove100Laff }} ({{ ((toonstats.amountToonsWithSquirtAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithSquirtMaxed }} ({{ ((toonstats.amountToonsWithSquirtMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountOrganicSquirt }} ({{ ((toonstats.amountOrganicSquirt / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithSquirt }} ({{ getPercent(toonstats.amountToonsWithSquirt, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountToonsWithSquirtAbove100Laff }} ({{ getPercent(toonstats.amountToonsWithSquirtAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountToonsWithSquirtMaxed }} ({{ getPercent(toonstats.amountToonsWithSquirtMaxed, toonstats.amountToonsMaxed) }})</td>
+                  <td>{{ toonstats.amountOrganicSquirt }} ({{ getPercent(toonstats.amountOrganicSquirt, toonstats.amountToons) }})</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
                   <th scope="row">Drop</th>
-                  <td>{{ toonstats.amountToonsWithDrop }} ({{ ((toonstats.amountToonsWithDrop / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithDropAbove100Laff }} ({{ ((toonstats.amountToonsWithDropAbove100Laff / toonstats.amountToonsAbove100Laff) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountToonsWithDropMaxed }} ({{ ((toonstats.amountToonsWithDropMaxed / toonstats.amountToonsMaxed) * 100).toFixed(2) }}%)</td>
-                  <td>{{ toonstats.amountOrganicDrop }} ({{ ((toonstats.amountOrganicDrop / toonstats.amountToons) * 100).toFixed(2) }}%)</td>
+                  <td>{{ toonstats.amountToonsWithDrop }} ({{ getPercent(toonstats.amountToonsWithDrop, toonstats.amountToons) }})</td>
+                  <td>{{ toonstats.amountToonsWithDropAbove100Laff }} ({{ getPercent(toonstats.amountToonsWithDropAbove100Laff, toonstats.amountToonsAbove100Laff) }})</td>
+                  <td>{{ toonstats.amountToonsWithDropMaxed }} ({{ getPercent(toonstats.amountToonsWithDropMaxed, toonstats.amountToonsMaxed) }})</td>
+                  <td>{{ toonstats.amountOrganicDrop }} ({{ getPercent(toonstats.amountOrganicDrop, toonstats.amountToons) }})</td>
                 </tr>
               </tbody>
           </table>
@@ -207,12 +203,12 @@
         </div>
     </div>
     <br>
-    <div class="card">
+  <div class="card container-fluid" [ngClass]="{'placeholder': toonstats == null}">
       <div class="card-body text-center align-middle">
         <h5>Cog Suits</h5>
       </div>
       <div class="card-body">
-          <table class="table">
+        <table class="table" *ngIf="toonstats != null">
               <thead>
                 <tr>
                   <th scope="col">Tier 8 Cog Suit</th>
