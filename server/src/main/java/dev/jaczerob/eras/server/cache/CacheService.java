@@ -4,7 +4,6 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import dev.jaczerob.eras.server.districts.services.DistrictService;
-import dev.jaczerob.eras.server.toonstats.services.ToonScrapingService;
 import dev.jaczerob.eras.server.toonstats.services.ToonStatsService;
 import dev.jaczerob.eras.server.toontown.models.releasenotes.ReleaseNotesPartial;
 import dev.jaczerob.eras.server.toontown.services.api.ToontownAPI;

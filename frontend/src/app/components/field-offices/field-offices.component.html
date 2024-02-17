@@ -6,7 +6,7 @@
             </h5>
             <div class="container">
                 <div *ngFor="let fieldOffice of fieldOffices.fieldOffices| keyvalue" class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start border-0">
+                    <div class="list-group-item flex-column align-items-start border-0">
                         <div class="d-flex w-100 justify-content-between">
                             <h6 class="mb-1">
                                 {{fieldOffice.key}}
@@ -19,7 +19,7 @@
                         <ng-template #closing>
                             Closing...
                         </ng-template>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>

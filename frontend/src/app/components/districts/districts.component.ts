@@ -15,7 +15,10 @@ export class DistrictsComponent implements OnInit {
   constructor(private toontownService: ToontownService) { }
 
   ngOnInit(): void {
-    this.toontownService.getDistricts().subscribe((districts) => this.districts = districts);
+    this.toontownService.getDistricts().subscribe((districts) => {
+      districts.districts.sort(function(a, b) { return b.population - a.population; });
+      this.districts = districts;
+    });
   }
 
   getColor(district: District): string {
@@ -30,9 +33,5 @@ export class DistrictsComponent implements OnInit {
     } else {
       return District.EMPTY_COLOR;
     }
-  }
-
-  getWidth(invasion: Invasion): string {
-    return (invasion.cogsDefeated / invasion.totalCogs) * 100 + '%';
   }
 }

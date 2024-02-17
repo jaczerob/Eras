@@ -3,5 +3,6 @@ export class Invasion {
         public cogsDefeated: number,
         public totalCogs: number,
         public cog: string,
-    ) {}
+    ) {
+    }
 }

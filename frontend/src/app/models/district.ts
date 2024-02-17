@@ -21,5 +21,7 @@ export class District {
         public population: number,
         public status: string,
         public invasion: Invasion | null,
-    ) {}
+    ) {
+
+    }
 }
