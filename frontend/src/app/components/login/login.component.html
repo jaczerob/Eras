@@ -1,25 +1,28 @@
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <h5 *ngIf="status.open;else not_open" class="card-title text-center align-middle">
-                Toontown is open!
-            </h5>
-            <ng-template #not_open>
-                <h5 class="card-title text-center align-middle">
-                    Toontown is closed!
-                </h5>
-            </ng-template>
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="username">
-                </div><br>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter password" formControlName="password">
-                </div><br>
-                <button type="submit" class="btn btn-primary">Play</button>
-            </form>
+  <div class="card">
+    <div class="card-body">
+      <h5 *ngIf="status.open;else not_open" class="card-title text-center align-middle">
+        Toontown is open!
+      </h5>
+      <ng-template #not_open>
+        <h5 class="card-title text-center align-middle">
+          Toontown is closed!
+        </h5>
+      </ng-template>
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input class="form-control" formControlName="username" id="username" placeholder="Enter username" type="text">
         </div>
+        <br>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" formControlName="password" id="password" placeholder="Enter password"
+                 type="password">
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Play</button>
+      </form>
     </div>
+  </div>
 </div>

@@ -1,9 +1,9 @@
-import { Buffer } from 'buffer';
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Status } from "src/app/models/status";
-import { ToontownService } from "src/app/services/toontown.service";
-import { environment } from 'src/environments/environment';
+import {Buffer} from 'buffer';
+import {Component} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Status} from "src/app/models/status";
+import {ToontownService} from "src/app/services/toontown.service";
+import {environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -18,10 +18,7 @@ export class LoginComponent {
     password: new FormControl('')
   })
 
-  constructor(private toontown: ToontownService) { }
-
-  ngOnInit(): void {
-    this.toontown.getStatus().subscribe((status) => this.status = status);
+  constructor(private toontown: ToontownService) {
   }
 
   get username() {
@@ -31,7 +28,11 @@ export class LoginComponent {
   get password() {
     return this.loginForm.get('password')?.value || '';
   }
-  
+
+  ngOnInit(): void {
+    this.toontown.getStatus().subscribe((status) => this.status = status);
+  }
+
   onSubmit(): void {
     if (this.username === '' || this.password === '') {
       alert('Please enter a username and password.');

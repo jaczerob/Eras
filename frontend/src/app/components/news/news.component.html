@@ -1,5 +1,5 @@
 <div class="container placeholder-glow">
-  <div class="card border-0 container-fluid" [ngClass]="{'placeholder': status == null}">
+  <div [ngClass]="{'placeholder': status == null}" class="card border-0 container-fluid">
     <h5 *ngIf="status?.open;else not_open" class="card-title text-center align-middle">
       Toontown is open!
     </h5>
@@ -10,7 +10,7 @@
     </ng-template>
   </div>
   <br>
-  <div class="card container-fluid" [ngClass]="{'placeholder': releaseNotes == null}">
+  <div [ngClass]="{'placeholder': releaseNotes == null}" class="card container-fluid">
     <div class="card-body">
       <h5 class="card-title text-center align-middle">
         Release {{ releaseNotes?.slug }} - {{ releaseNotes?.date }}
@@ -18,7 +18,7 @@
       <div *ngFor="let note of formattedReleaseNotes | keyvalue" class="list-group">
         <div class="list-group-item flex-column align-items-start border-0">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{note.key}}</h5>
+            <h5 class="mb-1">{{ note.key }}</h5>
           </div>
           <p [innerHTML]="note.value" class="mb-1"></p>
         </div>
@@ -26,12 +26,12 @@
     </div>
   </div>
   <br>
-  <div class="card container-fluid" [ngClass]="{'placeholder': news == null}">
-      <div class="card-body">
-          <h5 class="card-title text-center align-middle">
-              {{ news?.title }}
-          </h5>
-          <div [innerHTML]="news?.body"></div>
-      </div>
+  <div [ngClass]="{'placeholder': news == null}" class="card container-fluid">
+    <div class="card-body">
+      <h5 class="card-title text-center align-middle">
+        {{ news?.title }}
+      </h5>
+      <div [innerHTML]="news?.body"></div>
+    </div>
   </div>
 </div>

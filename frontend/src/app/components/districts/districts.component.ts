@@ -1,26 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { District } from 'src/app/models/district';
-import { Districts } from 'src/app/models/districts';
-import { Invasion } from 'src/app/models/invasion';
-import { ToontownService } from 'src/app/services/toontown.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {District} from 'src/app/models/district';
+import {Districts} from 'src/app/models/districts';
+import {ToontownService} from 'src/app/services/toontown.service';
+import {map, Subject, tap, timer} from "rxjs";
 
 @Component({
   selector: 'app-districts',
   templateUrl: './districts.component.html',
   styleUrls: ['./districts.component.css']
 })
-export class DistrictsComponent implements OnInit {
+export class DistrictsComponent implements OnInit, OnDestroy {
+  timer: any;
+
   districts: Districts | null = null;
   districtsArr: District[] = [];
 
-  constructor(private toontownService: ToontownService) { }
+  constructor(private toontownService: ToontownService) {
+  }
 
   ngOnInit(): void {
-    this.toontownService.getDistricts().subscribe((districts) => {
-      districts.districts.sort(function(a, b) { return b.population - a.population; });
-      this.districts = districts;
-      this.districtsArr = districts.districts;
-    });
+    this.timer = timer(0, 10000).pipe(
+      tap(() => console.log('getting districts')),
+      map(() => {
+        this.toontownService.getDistricts().subscribe((districts) => {
+          districts.districts.sort(function (a, b) {
+            return b.population - a.population;
+          });
+          this.districts = districts;
+          this.districtsArr = districts.districts;
+        });
+
+        return new Subject();
+      }
+    )).subscribe();
   }
 
   getColor(district: District): string {
@@ -35,5 +47,9 @@ export class DistrictsComponent implements OnInit {
     } else {
       return District.EMPTY_COLOR;
     }
+  }
+
+  ngOnDestroy() {
+    this.timer.unsubscribe();
   }
 }

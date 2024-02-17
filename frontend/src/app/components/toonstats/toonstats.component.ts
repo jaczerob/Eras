@@ -1,19 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { ToonStats } from 'src/app/models/toonstats';
-import { ToontownService } from 'src/app/services/toontown.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ToonStats} from 'src/app/models/toonstats';
+import {ToontownService} from 'src/app/services/toontown.service';
+import {map, Subject, tap, timer} from "rxjs";
 
 @Component({
   selector: 'app-toonstats',
   templateUrl: './toonstats.component.html',
   styleUrls: ['./toonstats.component.css']
 })
-export class ToonStatsComponent implements OnInit {
+export class ToonStatsComponent implements OnInit, OnDestroy {
+  timer: any;
+
   toonstats: ToonStats | null = null;
 
-  constructor(private toontownService: ToontownService) { }
+  constructor(private toontownService: ToontownService) {
+  }
 
   ngOnInit(): void {
-    this.toontownService.getToonStats().subscribe((toonstats) => this.toonstats = toonstats);
+    this.timer = timer(0, 10000).pipe(
+      tap(() => console.log('getting field offices')),
+      map(() => {
+        this.toontownService.getToonStats().subscribe((toonstats) => this.toonstats = toonstats);
+
+        return new Subject();
+      }),
+    ).subscribe();
   }
 
   getPercent(num1: number | undefined, num2: number | undefined): string {
@@ -22,5 +33,9 @@ export class ToonStatsComponent implements OnInit {
     }
 
     return "";
+  }
+
+  ngOnDestroy() {
+    this.timer.unsubscribe();
   }
 }

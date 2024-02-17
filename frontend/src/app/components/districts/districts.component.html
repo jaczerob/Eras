@@ -1,19 +1,21 @@
 <div class="container">
   <h3 class="text-center align-middle">
-    Total Toons: <span class="col-4" [ngClass]="{ 'placeholder': districts == null }">{{ districts?.totalPopulation }}</span>
+    Total Toons: <span [ngClass]="{ 'placeholder': districts == null }"
+                       class="col-4">{{ districts?.totalPopulation }}</span>
   </h3>
-  <div class="row gy-3 container-fluid" [ngClass]="{ 'placeholder': districts == null }">
+  <div [ngClass]="{ 'placeholder': districts == null }" class="row gy-3 container-fluid">
     <div *ngFor="let district of districtsArr">
-        <div class="col card">
-          <div class="card-body">
-            <h5 class="card-title"><i [ngStyle]="{ 'color': getColor(district) }" class="fa fa-circle" aria-hidden="true"></i> {{ district.name }}</h5>
-            <span class="card-text">Population: {{ district.population }}</span>
-            <div *ngIf="district.invasion != null" class="card-text">
-              <span>Invasion: {{ district.invasion.cog.replace('', '') }}</span><br>
-              <span>Progress: {{ district.invasion.cogsDefeated }}/{{ district.invasion.totalCogs }}</span>
-            </div>
+      <div class="col card">
+        <div class="card-body">
+          <h5 class="card-title"><i [ngStyle]="{ 'color': getColor(district) }" aria-hidden="true"
+                                    class="fa fa-circle"></i> {{ district.name }}</h5>
+          <span class="card-text">Population: {{ district.population }}</span>
+          <div *ngIf="district.invasion != null" class="card-text">
+            <span>Invasion: {{ district.invasion.cog.replace('', '') }}</span><br>
+            <span>Progress: {{ district.invasion.cogsDefeated }}/{{ district.invasion.totalCogs }}</span>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
