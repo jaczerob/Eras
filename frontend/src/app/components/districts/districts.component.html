@@ -1,11 +1,7 @@
 <div class="container">
-  <h3 class="text-center align-middle">
-    Total Toons: <span [ngClass]="{ 'placeholder': districts == null }"
-                       class="col-4">{{ districts?.totalPopulation }}</span>
-  </h3>
   <div [ngClass]="{ 'placeholder': districts == null }" class="row gy-3 container-fluid">
     <div *ngFor="let district of districtsArr">
-      <div class="col card">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">{{ district.name }}</h5>
           <span class="card-text">Population: {{ district.population }}</span>

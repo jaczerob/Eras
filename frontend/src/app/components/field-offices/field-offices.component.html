@@ -1,7 +1,4 @@
 <div class="container placeholder-glow">
-  <h3 class="text-center align-middle">
-    Field Offices
-  </h3>
   <div [ngClass]="{ 'placeholder': fieldOffices == null }" class="row gy-3 container-fluid">
     <div *ngFor="let fieldOffice of fieldOfficesMap | keyvalue" class="list-group">
       <div class="card container-fluid">

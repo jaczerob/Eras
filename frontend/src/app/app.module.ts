@@ -10,6 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FieldOfficesComponent } from './components/field-offices/field-offices.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToonStatsComponent } from './components/toonstats/toonstats.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { ContributorsComponent } from './components/contributors/contributors.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ToonStatsComponent } from './components/toonstats/toonstats.component';
     LoginComponent,
     FieldOfficesComponent,
     ToonStatsComponent,
+    LandingComponent,
+    ContributorsComponent,
   ],
   imports: [
     BrowserModule,

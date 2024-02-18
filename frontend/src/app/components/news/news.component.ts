@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {News} from 'src/app/models/news';
 import {ToontownService} from 'src/app/services/toontown.service';
 import {ReleaseNotes} from "../../models/release-notes";
 import {Status} from "../../models/status";
 import {map, Subject, tap, timer} from "rxjs";
+import {Districts} from "../../models/districts";
 
 @Component({
   selector: 'app-news',
@@ -14,16 +15,26 @@ import {map, Subject, tap, timer} from "rxjs";
 export class NewsComponent implements OnInit, OnDestroy {
   timer: any;
 
+  districts: Districts | null = null;
   news: News | null = null;
   releaseNotes: ReleaseNotes | null = null;
   formattedReleaseNotes: Map<String, String> = new Map<String, String>();
   status: Status | null = null;
 
-  constructor(private toontownService: ToontownService, private renderer: Renderer2) {
+  constructor(private toontownService: ToontownService) {
   }
 
   ngOnInit(): void {
     this.timer = timer(0, 10000).pipe(
+      tap(() => console.log('getting districts')),
+      map(() => {
+        this.toontownService.getDistricts().subscribe((districts) => {
+          this.districts = districts;
+        });
+
+        return new Subject();
+      }),
+
       tap(() => console.log('getting status')),
       map(() => {
         this.toontownService.getStatus().subscribe((status) => {

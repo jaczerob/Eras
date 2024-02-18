@@ -1,7 +1,9 @@
 <div class="container placeholder-glow">
-  <h3 class="text-center align-middle">ToonStats</h3>
   <div class="card">
     <div class="card-body">
+      <div class="card-title text-center align-middle">
+        <h5>Global Stats</h5>
+      </div>
       <p class="text-left align-left">
         Sample Size: <span [ngClass]="{'placeholder': toonstats == null}"
                            class="col-2">{{ toonstats?.amountToons }}</span><br>
@@ -15,11 +17,11 @@
   </div>
   <br>
   <div [ngClass]="{'placeholder': toonstats == null}" class="card container-fluid">
-    <div class="card-body text-center align-middle">
-      <h5>Species</h5>
-    </div>
     <div class="card-body">
-      <table *ngIf="toonstats != null" class="table">
+      <div class="card-title text-center align-middle">
+        <h5>Species</h5>
+      </div>
+      <table *ngIf="toonstats != null" class="table table-bordered table-hover table-sm">
         <thead>
         <tr>
           <th scope="col">Species</th>
@@ -125,7 +127,7 @@
       <h5>Gags</h5>
     </div>
     <div class="card-body">
-      <table *ngIf="toonstats != null" class="table">
+      <table *ngIf="toonstats != null" class="table table-bordered table-hover table-sm">
         <thead>
         <tr>
           <th scope="col">Gag</th>
@@ -209,7 +211,7 @@
       <h5>Cog Suits</h5>
     </div>
     <div class="card-body">
-      <table *ngIf="toonstats != null" class="table">
+      <table *ngIf="toonstats != null" class="table table-bordered table-hover table-sm">
         <thead>
         <tr>
           <th scope="col">Tier 8 Cog Suit</th>
