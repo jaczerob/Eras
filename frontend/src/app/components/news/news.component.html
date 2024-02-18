@@ -1,15 +1,17 @@
 <div class="container placeholder-glow">
-  <div [ngClass]="{'placeholder': status == null}" class="card border-0 container-fluid">
-    <h5 *ngIf="status?.open;else not_open" class="card-title text-center align-middle">
-      Toontown is open!
-    </h5>
-    <ng-template #not_open>
-      <h5 class="card-title text-center align-middle">
-        Toontown is closed! {{ status?.banner }}
-      </h5>
-    </ng-template>
-  </div>
-  <br>
+  <h3 class="text-center align-middle">Toontown News</h3>
+<!--  <div [ngClass]="{'placeholder': status == null}" class="card container-fluid">-->
+<!--    <h5 class="text-center align-middle">Status</h5>-->
+<!--    <p *ngIf="status?.open;else not_open" class="card-title text-center align-middle">-->
+<!--      Toontown is open!-->
+<!--    </p>-->
+<!--    <ng-template #not_open>-->
+<!--      <h5 class="card-title text-center align-middle">-->
+<!--        Toontown is closed! {{ status?.banner }}-->
+<!--      </h5>-->
+<!--    </ng-template>-->
+<!--  </div>-->
+<!--  <br>-->
   <div [ngClass]="{'placeholder': releaseNotes == null}" class="card container-fluid">
     <div class="card-body">
       <h5 class="card-title text-center align-middle">

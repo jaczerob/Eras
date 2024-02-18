@@ -1,7 +1,7 @@
 <div align="center">
     <h1>Eras</h1>
     A full stack web application and launcher daemon for launching and accessing Toontown Rewritten information from the web<br>
-    <small> ⚠️ Not complete, many features not implemented, not open to the public ⚠️</small>
+    <small> ⚠️ Not complete, many features not implemented ⚠️</small>
     <img src="./assets/webpage.png" alt="webpage">
 </div>
 
@@ -36,7 +36,7 @@
 #### Requirements
 <ul>
     <li>node.js</li>
-    <li>Java 17</li>
+    <li>Java 21</li>
     <li>Maven CLI</li>
 </ul>
 
