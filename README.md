@@ -40,7 +40,7 @@
     <li>Maven CLI</li>
 </ul>
 
-#### Running Madam Chuckle
+#### Running Eras
 <ul>
     <li>Clone and cd into repo</li>
     <li>backend
