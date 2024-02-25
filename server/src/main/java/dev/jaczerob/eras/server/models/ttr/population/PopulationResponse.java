@@ -1,10 +1,10 @@
 package dev.jaczerob.eras.server.models.ttr.population;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.collect.Streams;
 import dev.jaczerob.eras.server.models.ttr.ToontownAPIObject;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -22,16 +22,12 @@ public class PopulationResponse extends ToontownAPIObject {
         super(error, lastUpdated);
         this.totalPopulation = totalPopulation;
 
-        this.districts = Streams.zip(
-            populationByDistrict.entrySet().stream(),
-            statusByDistrict.entrySet().stream(),
-            (populationEntry, statusEntry) -> new PopulationDistrictResponse(
-                    populationEntry.getKey(),
-                    populationEntry.getValue(),
-                    statusEntry.getValue()
-            )
-        )
-        .collect(Collectors.toMap(PopulationDistrictResponse::getName, Function.identity()));
+        final Set<String> districtNames = populationByDistrict.keySet();
+        this.districts = districtNames.stream().map(district -> new PopulationDistrictResponse(
+            district,
+            populationByDistrict.get(district),
+            statusByDistrict.get(district)
+        )).collect(Collectors.toMap(PopulationDistrictResponse::getName, Function.identity()));
     }
 
     public int getTotalPopulation() {

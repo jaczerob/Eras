@@ -11,13 +11,8 @@
         <ul>
             <li>Java</li>
             <li>Spring Boot</li>
-        </ul>
-    </li>
-    <li>launcher
-        <ul>
-            <li>Java</li>
-            <li>Micronaut</li>
-            <li>Websockets</li>
+            <li>GraphQL</li>
+            <li>MySQL</li>
         </ul>
     </li>
     <li>frontend
@@ -25,12 +20,10 @@
             <li>Typescript</li>
             <li>Angular</li>
             <li>Bootstrap</li>
-            <li>Websockets</li>
+            <li>GraphQL</li>
         </ul>
     </li>
 </ul>
-
-
 
 ### How to run from source
 #### Requirements
@@ -47,12 +40,6 @@
         <ul>
             <li><code>cd server</code></li>
             <li><code>mvn spring-boot:run</code></li>
-        </ul>
-    </li>
-    <li>launcherd
-        <ul>
-            <li><code>cd launcher</code></li>
-            <li><code>mvn mn:run</code></li>
         </ul>
     </li>
     <li>frontend

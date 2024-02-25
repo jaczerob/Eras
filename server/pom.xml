@@ -10,16 +10,16 @@
 	</parent>
 	<groupId>dev.jaczerob.eras</groupId>
 	<artifactId>server</artifactId>
-	<version>0.0.3</version>
+	<version>0.1.0</version>
 	<name>server</name>
 	<description>A launcher and stats provider for Toontown Rewritten</description>
+
 	<properties>
 		<java.version>21</java.version>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.release>${java.version}</maven.compiler.release>
 
 		<feign-form.verison>3.8.0</feign-form.verison>
-		<guava.version>33.0.0-jre</guava.version>
 		<jsoup.version>1.17.2</jsoup.version>
 		<mysql-connector-j.version>8.3.0</mysql-connector-j.version>
 		<snakeyaml.version>2.2</snakeyaml.version>
@@ -36,11 +36,6 @@
 			<groupId>io.github.openfeign.form</groupId>
 			<artifactId>feign-form</artifactId>
 			<version>${feign-form.verison}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>

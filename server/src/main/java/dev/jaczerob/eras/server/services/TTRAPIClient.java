@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @FeignClient(name = "toontown", url = "https://www.toontownrewritten.com/api")
-public interface ToontownAPI {
+public interface TTRAPIClient {
     @RequestMapping("/fieldoffices")
     FieldOffices getFieldOffices();
 
