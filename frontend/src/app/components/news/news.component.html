@@ -1,42 +1,50 @@
-<div class="container placeholder-glow">
-  <div [ngClass]="{'placeholder': status == null}" class="card container-fluid">
-    <div class="card-body">
-      <h5 class="text-center align-middle">Server Status</h5>
-      <div *ngIf="status?.open;else not_open">
-        <p class="card-title">
-          Toontown is open. Current population is {{ districts?.totalPopulation }} Toons.
-        </p>
-      </div>
-      <ng-template #not_open>
-        <h5 class="card-title text-center align-middle">
-          Toontown is closed. {{ status?.banner }}
-        </h5>
-      </ng-template>
-    </div>
+<ng-container *ngIf="status == null || releaseNotes == null || news == null; else main">
+  <div class="spinner-border d-flex align-items-center justify-content-center" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
-  <br>
-  <div [ngClass]="{'placeholder': releaseNotes == null}" class="card container-fluid">
-    <div class="card-body">
-      <h5 class="card-title text-center align-middle">
-        Release {{ releaseNotes?.slug }} - {{ releaseNotes?.date }}
-      </h5>
-      <div *ngFor="let note of formattedReleaseNotes | keyvalue" class="list-group">
-        <div class="list-group-item flex-column align-items-start border-0">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{{ note.key }}</h5>
+</ng-container>
+
+<ng-template #main>
+  <div class="container">
+    <div class="card container-fluid">
+      <div class="card-body">
+        <h5 class="text-center align-middle">Server Status</h5>
+        <div *ngIf="status?.open;else not_open">
+          <p class="card-title">
+            Toontown is open. Current population is {{ districts?.totalPopulation }} Toons.
+          </p>
+        </div>
+        <ng-template #not_open>
+          <h5 class="card-title text-center align-middle">
+            Toontown is closed. {{ status?.banner }}
+          </h5>
+        </ng-template>
+      </div>
+    </div>
+    <br>
+    <div class="card container-fluid">
+      <div class="card-body">
+        <h5 class="card-title text-center align-middle">
+          Release {{ releaseNotes?.slug }} - {{ releaseNotes?.date }}
+        </h5>
+        <div *ngFor="let note of formattedReleaseNotes | keyvalue" class="list-group">
+          <div class="list-group-item flex-column align-items-start border-0">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ note.key }}</h5>
+            </div>
+            <p [innerHTML]="note.value" class="mb-1"></p>
           </div>
-          <p [innerHTML]="note.value" class="mb-1"></p>
         </div>
       </div>
     </div>
-  </div>
-  <br>
-  <div [ngClass]="{'placeholder': news == null}" class="card container-fluid">
-    <div class="card-body">
-      <h5 class="card-title text-center align-middle">
-        {{ news?.title }}
-      </h5>
-      <div [innerHTML]="news?.body"></div>
+    <br>
+    <div class="card container-fluid">
+      <div class="card-body">
+        <h5 class="card-title text-center align-middle">
+          {{ news?.title }}
+        </h5>
+        <div [innerHTML]="news?.body"></div>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>
