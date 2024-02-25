@@ -5,23 +5,23 @@
         <h5>Global Stats</h5>
       </div>
       <p class="text-left align-left">
-        Sample Size: <span [ngClass]="{'placeholder': toonstats == null}"
-                           class="col-2">{{ toonstats?.amountToons }}</span><br>
-        Toons Above 100 Laff: <span [ngClass]="{'placeholder': toonstats == null}"
-                                    class="col-2">{{ toonstats?.amountToonsAbove100Laff }}</span><br>
-        Maxed Toons: <span [ngClass]="{'placeholder': toonstats == null}"
-                           class="col-2">{{ toonstats?.amountToonsMaxed }}</span><br>
+        Sample Size: <span [ngClass]="{'placeholder': toonStats == null}"
+                           class="col-2">{{ toonStats?.amountToons }}</span><br>
+        Toons Above 100 Laff: <span [ngClass]="{'placeholder': toonStats == null}"
+                                    class="col-2">{{ toonStats?.amountToonsAbove100Laff }}</span><br>
+        Maxed Toons: <span [ngClass]="{'placeholder': toonStats == null}"
+                           class="col-2">{{ toonStats?.amountToonsMaxed }}</span><br>
         <small>(Scraped from ToonHQ ToonSync)</small>
       </p>
     </div>
   </div>
   <br>
-  <div [ngClass]="{'placeholder': toonstats == null}" class="card container-fluid">
+  <div [ngClass]="{'placeholder': toonStats == null}" class="card container-fluid">
     <div class="card-body">
       <div class="card-title text-center align-middle">
         <h5>Species</h5>
       </div>
-      <table *ngIf="toonstats != null" class="table table-bordered table-hover table-sm">
+      <table *ngIf="toonStats != null" class="table table-bordered table-hover table-sm">
         <thead>
         <tr>
           <th scope="col">Species</th>
@@ -33,101 +33,101 @@
         <tbody>
         <tr>
           <th scope="row">Cat</th>
-          <td>{{ toonstats.amountCats }}</td>
-          <td>{{ toonstats.amountCatsAbove100Laff }}</td>
-          <td>{{ toonstats.amountCatsMaxed }}</td>
+          <td>{{ toonStats.amountCats }}</td>
+          <td>{{ toonStats.amountCatsAbove100Laff }}</td>
+          <td>{{ toonStats.amountCatsMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Dog</th>
-          <td>{{ toonstats.amountDogs }}</td>
-          <td>{{ toonstats.amountDogsAbove100Laff }}</td>
-          <td>{{ toonstats.amountDogsMaxed }}</td>
+          <td>{{ toonStats.amountDogs }}</td>
+          <td>{{ toonStats.amountDogsAbove100Laff }}</td>
+          <td>{{ toonStats.amountDogsMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Mice</th>
-          <td>{{ toonstats.amountMice }}</td>
-          <td>{{ toonstats.amountMiceAbove100Laff }}</td>
-          <td>{{ toonstats.amountMiceMaxed }}</td>
+          <td>{{ toonStats.amountMice }}</td>
+          <td>{{ toonStats.amountMiceAbove100Laff }}</td>
+          <td>{{ toonStats.amountMiceMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Ducks</th>
-          <td>{{ toonstats.amountDucks }}</td>
-          <td>{{ toonstats.amountDucksAbove100Laff }}</td>
-          <td>{{ toonstats.amountDucksMaxed }}</td>
+          <td>{{ toonStats.amountDucks }}</td>
+          <td>{{ toonStats.amountDucksAbove100Laff }}</td>
+          <td>{{ toonStats.amountDucksMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Deer</th>
-          <td>{{ toonstats.amountDeer }}</td>
-          <td>{{ toonstats.amountDeerAbove100Laff }}</td>
-          <td>{{ toonstats.amountDeerMaxed }}</td>
+          <td>{{ toonStats.amountDeer }}</td>
+          <td>{{ toonStats.amountDeerAbove100Laff }}</td>
+          <td>{{ toonStats.amountDeerMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Rabbits</th>
-          <td>{{ toonstats.amountRabbits }}</td>
-          <td>{{ toonstats.amountRabbitsAbove100Laff }}</td>
-          <td>{{ toonstats.amountRabbitsMaxed }}</td>
+          <td>{{ toonStats.amountRabbits }}</td>
+          <td>{{ toonStats.amountRabbitsAbove100Laff }}</td>
+          <td>{{ toonStats.amountRabbitsMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Bears</th>
-          <td>{{ toonstats.amountBears }}</td>
-          <td>{{ toonstats.amountBearsAbove100Laff }}</td>
-          <td>{{ toonstats.amountBearsMaxed }}</td>
+          <td>{{ toonStats.amountBears }}</td>
+          <td>{{ toonStats.amountBearsAbove100Laff }}</td>
+          <td>{{ toonStats.amountBearsMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Monkeys</th>
-          <td>{{ toonstats.amountMonkeys }}</td>
-          <td>{{ toonstats.amountMonkeysAbove100Laff }}</td>
-          <td>{{ toonstats.amountMonkeysMaxed }}</td>
+          <td>{{ toonStats.amountMonkeys }}</td>
+          <td>{{ toonStats.amountMonkeysAbove100Laff }}</td>
+          <td>{{ toonStats.amountMonkeysMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Crocodiles</th>
-          <td>{{ toonstats.amountCrocodiles }}</td>
-          <td>{{ toonstats.amountCrocodilesAbove100Laff }}</td>
-          <td>{{ toonstats.amountCrocodilesMaxed }}</td>
+          <td>{{ toonStats.amountCrocodiles }}</td>
+          <td>{{ toonStats.amountCrocodilesAbove100Laff }}</td>
+          <td>{{ toonStats.amountCrocodilesMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Pigs</th>
-          <td>{{ toonstats.amountPigs }}</td>
-          <td>{{ toonstats.amountPigsAbove100Laff }}</td>
-          <td>{{ toonstats.amountPigsMaxed }}</td>
+          <td>{{ toonStats.amountPigs }}</td>
+          <td>{{ toonStats.amountPigsAbove100Laff }}</td>
+          <td>{{ toonStats.amountPigsMaxed }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Horses</th>
-          <td>{{ toonstats.amountHorses }}</td>
-          <td>{{ toonstats.amountHorsesAbove100Laff }}</td>
-          <td>{{ toonstats.amountHorsesMaxed }}</td>
+          <td>{{ toonStats.amountHorses }}</td>
+          <td>{{ toonStats.amountHorsesAbove100Laff }}</td>
+          <td>{{ toonStats.amountHorsesMaxed }}</td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
   <br>
-  <div [ngClass]="{'placeholder': toonstats == null}" class="card container-fluid">
+  <div [ngClass]="{'placeholder': toonStats == null}" class="card container-fluid">
     <div class="card-body text-center align-middle">
       <h5>Gags</h5>
     </div>
     <div class="card-body">
-      <table *ngIf="toonstats != null" class="table table-bordered table-hover table-sm">
+      <table *ngIf="toonStats != null" class="table table-bordered table-hover table-sm">
         <thead>
         <tr>
           <th scope="col">Gag</th>
@@ -140,65 +140,65 @@
         <tbody>
         <tr>
           <th scope="row">Toon-Up</th>
-          <td>{{ toonstats.amountToonsWithToonUp }}</td>
-          <td>{{ toonstats.amountToonsWithToonUpAbove100Laff }}</td>
-          <td>{{ toonstats.amountToonsWithToonUpMaxed }}</td>
-          <td>{{ toonstats.amountOrganicToonUp }}</td>
+          <td>{{ toonStats.amountToonsWithToonUp }}</td>
+          <td>{{ toonStats.amountToonsWithToonUpAbove100Laff }}</td>
+          <td>{{ toonStats.amountToonsWithToonUpMaxed }}</td>
+          <td>{{ toonStats.amountOrganicToonUp }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
         <tr>
           <th scope="row">Trap</th>
-          <td>{{ toonstats.amountToonsWithTrap }}</td>
-          <td>{{ toonstats.amountToonsWithTrapAbove100Laff }}</td>
-          <td>{{ toonstats.amountToonsWithTrapMaxed }}</td>
-          <td>{{ toonstats.amountOrganicTrap }}</td>
+          <td>{{ toonStats.amountToonsWithTrap }}</td>
+          <td>{{ toonStats.amountToonsWithTrapAbove100Laff }}</td>
+          <td>{{ toonStats.amountToonsWithTrapMaxed }}</td>
+          <td>{{ toonStats.amountOrganicTrap }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Lure</th>
-          <td>{{ toonstats.amountToonsWithLure }}</td>
-          <td>{{ toonstats.amountToonsWithLureAbove100Laff }}</td>
-          <td>{{ toonstats.amountToonsWithLureMaxed }}</td>
-          <td>{{ toonstats.amountOrganicLure }}</td>
+          <td>{{ toonStats.amountToonsWithLure }}</td>
+          <td>{{ toonStats.amountToonsWithLureAbove100Laff }}</td>
+          <td>{{ toonStats.amountToonsWithLureMaxed }}</td>
+          <td>{{ toonStats.amountOrganicLure }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Sound</th>
-          <td>{{ toonstats.amountToonsWithSound }}</td>
-          <td>{{ toonstats.amountToonsWithSoundAbove100Laff }}</td>
-          <td>{{ toonstats.amountToonsWithSoundMaxed }}</td>
-          <td>{{ toonstats.amountOrganicSound }}</td>
+          <td>{{ toonStats.amountToonsWithSound }}</td>
+          <td>{{ toonStats.amountToonsWithSoundAbove100Laff }}</td>
+          <td>{{ toonStats.amountToonsWithSoundMaxed }}</td>
+          <td>{{ toonStats.amountOrganicSound }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Throw</th>
-          <td>{{ toonstats.amountToonsWithThrow }}</td>
-          <td>{{ toonstats.amountToonsWithThrowAbove100Laff }}</td>
-          <td>{{ toonstats.amountToonsWithThrowMaxed }}</td>
-          <td>{{ toonstats.amountOrganicThrow }}</td>
+          <td>{{ toonStats.amountToonsWithThrow }}</td>
+          <td>{{ toonStats.amountToonsWithThrowAbove100Laff }}</td>
+          <td>{{ toonStats.amountToonsWithThrowMaxed }}</td>
+          <td>{{ toonStats.amountOrganicThrow }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Squirt</th>
-          <td>{{ toonstats.amountToonsWithSquirt }}</td>
-          <td>{{ toonstats.amountToonsWithSquirtAbove100Laff }}</td>
-          <td>{{ toonstats.amountToonsWithSquirtMaxed }}</td>
-          <td>{{ toonstats.amountOrganicSquirt }}</td>
+          <td>{{ toonStats.amountToonsWithSquirt }}</td>
+          <td>{{ toonStats.amountToonsWithSquirtAbove100Laff }}</td>
+          <td>{{ toonStats.amountToonsWithSquirtMaxed }}</td>
+          <td>{{ toonStats.amountOrganicSquirt }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Drop</th>
-          <td>{{ toonstats.amountToonsWithDrop }}</td>
-          <td>{{ toonstats.amountToonsWithDropAbove100Laff }}</td>
-          <td>{{ toonstats.amountToonsWithDropMaxed }}</td>
-          <td>{{ toonstats.amountOrganicDrop }}</td>
+          <td>{{ toonStats.amountToonsWithDrop }}</td>
+          <td>{{ toonStats.amountToonsWithDropAbove100Laff }}</td>
+          <td>{{ toonStats.amountToonsWithDropMaxed }}</td>
+          <td>{{ toonStats.amountOrganicDrop }}</td>
         </tr>
         </tbody>
       </table>
@@ -206,12 +206,12 @@
     </div>
   </div>
   <br>
-  <div [ngClass]="{'placeholder': toonstats == null}" class="card container-fluid">
+  <div [ngClass]="{'placeholder': toonStats == null}" class="card container-fluid">
     <div class="card-body text-center align-middle">
       <h5>Cog Suits</h5>
     </div>
     <div class="card-body">
-      <table *ngIf="toonstats != null" class="table table-bordered table-hover table-sm">
+      <table *ngIf="toonStats != null" class="table table-bordered table-hover table-sm">
         <thead>
         <tr>
           <th scope="col">Tier 8 Cog Suit</th>
@@ -221,25 +221,25 @@
         <tbody>
         <tr>
           <th scope="row">Sellbot</th>
-          <td>{{ toonstats.amountTier8Sellbot }}</td>
+          <td>{{ toonStats.amountTier8Sellbot }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Cashbot</th>
-          <td>{{ toonstats.amountTier8Cashbot }}</td>
+          <td>{{ toonStats.amountTier8Cashbot }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Lawbot</th>
-          <td>{{ toonstats.amountTier8Lawbot }}</td>
+          <td>{{ toonStats.amountTier8Lawbot }}</td>
         </tr>
         </tbody>
         <tbody>
         <tr>
           <th scope="row">Bossbot</th>
-          <td>{{ toonstats.amountTier8Bossbot }}</td>
+          <td>{{ toonStats.amountTier8Bossbot }}</td>
         </tr>
         </tbody>
       </table>

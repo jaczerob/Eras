@@ -4,6 +4,7 @@ export class FieldOffice {
         public difficulty: number,
         public annexes: number,
         public open: boolean,
-        public expiring: number
+        public expiring: number,
+        public zone: string,
     ) {}
 }

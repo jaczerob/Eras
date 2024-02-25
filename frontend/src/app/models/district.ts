@@ -19,7 +19,7 @@ export class District {
     constructor(
         public name: string,
         public population: number,
-        public status: string,
+        public districtStatus: string,
         public invasion: Invasion | null,
     ) {
 

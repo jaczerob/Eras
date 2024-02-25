@@ -2,7 +2,7 @@ create table if not exists districts (
     id int not null auto_increment,
     population int,
     district varchar(32),
-    status varchar(8),
+    districtStatus varchar(8),
     date timestamp,
     primary key (id)
 );

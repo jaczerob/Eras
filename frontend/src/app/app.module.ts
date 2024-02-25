@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToonStatsComponent } from './components/toonstats/toonstats.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { ContributorsComponent } from './components/contributors/contributors.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ContributorsComponent } from './components/contributors/contributors.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent],

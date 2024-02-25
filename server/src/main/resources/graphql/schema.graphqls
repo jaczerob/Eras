@@ -1,0 +1,144 @@
+type News {
+    title: String!
+    postId: Int!
+    author: String!
+    body: String!
+    date: String!
+    image: String!
+}
+
+type ReleaseNotes {
+    noteId: Int!
+    slug: String!
+    date: String!
+    body: String!
+}
+
+type FieldOffice {
+    zone: String!
+    department: String!
+    difficulty: Int!
+    annexes: Int!
+    open: Boolean!
+    expiring: Int!
+}
+
+type FieldOffices {
+    lastUpdated: Int!
+    fieldOffices: [FieldOffice!]!
+}
+
+type Status {
+    open: Boolean!
+    status: String!
+}
+
+enum DistrictStatus {
+    ONLINE
+    OFFLINE
+    DRAINING
+    CLOSED
+}
+
+type Invasion {
+    cogsDefeated: Int!
+    totalCogs: Int!
+    cog: String!
+}
+
+type District {
+    name: String!
+    population: Int!
+    districtStatus: DistrictStatus!
+    invasion: Invasion
+}
+
+type Districts {
+    totalPopulation: Int!
+    districts: [District!]!
+}
+
+type ToonStats {
+    amountToons: Int!
+    amountToonsAbove100Laff: Int!
+    amountToonsMaxed: Int!
+    amountCats: Int!
+    amountDogs: Int!
+    amountMice: Int!
+    amountRabbits: Int!
+    amountHorses: Int!
+    amountPigs: Int!
+    amountMonkeys: Int!
+    amountBears: Int!
+    amountCrocodiles: Int!
+    amountDeer: Int!
+    amountDucks: Int!
+    amountCatsAbove100Laff: Int!
+    amountDogsAbove100Laff: Int!
+    amountMiceAbove100Laff: Int!
+    amountRabbitsAbove100Laff: Int!
+    amountHorsesAbove100Laff: Int!
+    amountPigsAbove100Laff: Int!
+    amountMonkeysAbove100Laff: Int!
+    amountBearsAbove100Laff: Int!
+    amountCrocodilesAbove100Laff: Int!
+    amountDeerAbove100Laff: Int!
+    amountDucksAbove100Laff: Int!
+    amountCatsMaxed: Int!
+    amountDogsMaxed: Int!
+    amountMiceMaxed: Int!
+    amountRabbitsMaxed: Int!
+    amountHorsesMaxed: Int!
+    amountPigsMaxed: Int!
+    amountMonkeysMaxed: Int!
+    amountBearsMaxed: Int!
+    amountCrocodilesMaxed: Int!
+    amountDeerMaxed: Int!
+    amountDucksMaxed: Int!
+    amountToonsWithToonUp: Int!
+    amountToonsWithTrap: Int!
+    amountToonsWithLure: Int!
+    amountToonsWithSound: Int!
+    amountToonsWithThrow: Int!
+    amountToonsWithSquirt: Int!
+    amountToonsWithDrop: Int!
+    amountToonsWithToonUpAbove100Laff: Int!
+    amountToonsWithTrapAbove100Laff: Int!
+    amountToonsWithLureAbove100Laff: Int!
+    amountToonsWithSoundAbove100Laff: Int!
+    amountToonsWithThrowAbove100Laff: Int!
+    amountToonsWithSquirtAbove100Laff: Int!
+    amountToonsWithDropAbove100Laff: Int!
+    amountToonsWithToonUpMaxed: Int!
+    amountToonsWithTrapMaxed: Int!
+    amountToonsWithLureMaxed: Int!
+    amountToonsWithSoundMaxed: Int!
+    amountToonsWithThrowMaxed: Int!
+    amountToonsWithSquirtMaxed: Int!
+    amountToonsWithDropMaxed: Int!
+    amountOrganicNone: Int!
+    amountOrganicToonUp: Int!
+    amountOrganicTrap: Int!
+    amountOrganicLure: Int!
+    amountOrganicSound: Int!
+    amountOrganicThrow: Int!
+    amountOrganicSquirt: Int!
+    amountOrganicDrop: Int!
+    amountTier8Sellbot: Int!
+    amountTier8Cashbot: Int!
+    amountTier8Lawbot: Int!
+    amountTier8Bossbot: Int!
+}
+
+type TTRAPIResponse {
+    news: News
+    releaseNotes: ReleaseNotes
+    fieldOffices: FieldOffices
+    status: Status
+    toonStats: ToonStats
+    districts: Districts
+}
+
+type Query {
+    pullData: TTRAPIResponse
+}

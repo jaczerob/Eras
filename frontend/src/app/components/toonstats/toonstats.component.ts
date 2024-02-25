@@ -1,30 +1,29 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ToonStats} from 'src/app/models/toonstats';
 import {ToontownService} from 'src/app/services/toontown.service';
-import {map, Subject, tap, timer} from "rxjs";
+import {ApolloQueryResult} from "@apollo/client";
+import {TTRPullDataQuery} from "../../models/ttr-pull-data";
 
 @Component({
   selector: 'app-toonstats',
   templateUrl: './toonstats.component.html',
   styleUrls: ['./toonstats.component.css']
 })
-export class ToonStatsComponent implements OnInit, OnDestroy {
-  timer: any;
-
-  toonstats: ToonStats | null = null;
+export class ToonStatsComponent implements OnInit {
+  toonStats: ToonStats | null = null;
 
   constructor(private toontownService: ToontownService) {
   }
 
   ngOnInit(): void {
-    this.timer = timer(0, 10000).pipe(
-      tap(() => console.log('getting field offices')),
-      map(() => {
-        this.toontownService.getToonStats().subscribe((toonstats) => this.toonstats = toonstats);
+    this.toontownService.getToonStatsPageGQL().valueChanges.subscribe((result: ApolloQueryResult<TTRPullDataQuery>) => {
+      if (result.errors) {
+        alert("Error fetching news feed: " + result.errors);
+        return;
+      }
 
-        return new Subject();
-      }),
-    ).subscribe();
+      this.toonStats = result.data.pullData.toonStats;
+    });
   }
 
   getPercent(num1: number | undefined, num2: number | undefined): string {
@@ -33,9 +32,5 @@ export class ToonStatsComponent implements OnInit, OnDestroy {
     }
 
     return "";
-  }
-
-  ngOnDestroy() {
-    this.timer.unsubscribe();
   }
 }

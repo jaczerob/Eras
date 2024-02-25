@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <h5 *ngIf="status.open;else not_open" class="card-title text-center align-middle">
+      <h5 *ngIf="status?.open;else not_open" class="card-title text-center align-middle">
         Toontown is open!
       </h5>
       <ng-template #not_open>

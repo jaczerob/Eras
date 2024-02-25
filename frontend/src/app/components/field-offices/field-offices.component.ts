@@ -1,38 +1,31 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FieldOffices} from 'src/app/models/field-offices';
 import {ToontownService} from 'src/app/services/toontown.service';
 import {FieldOffice} from "../../models/field-office";
-import {map, Subject, tap, timer} from "rxjs";
+import {ApolloQueryResult} from "@apollo/client";
+import {TTRPullDataQuery} from "../../models/ttr-pull-data";
 
 @Component({
   selector: 'app-field-offices',
   templateUrl: './field-offices.component.html',
   styleUrls: ['./field-offices.component.css']
 })
-export class FieldOfficesComponent implements OnInit, OnDestroy {
-  timer: any;
-
+export class FieldOfficesComponent implements OnInit {
   fieldOffices: FieldOffices | null = null;
-  fieldOfficesMap: Map<String, FieldOffice> = new Map<String, FieldOffice>();
+  fieldOfficesMap: FieldOffice[] = [];
 
   constructor(private toontownService: ToontownService) {
   }
 
   ngOnInit(): void {
-    this.timer = timer(0, 10000).pipe(
-      tap(() => console.log('getting field offices')),
-      map(() => {
-        this.toontownService.getFieldOffices().subscribe((fieldOffices) => {
-          this.fieldOffices = fieldOffices;
-          this.fieldOfficesMap = fieldOffices.fieldOffices;
-        });
+    this.toontownService.getFieldOfficesPageGQL().valueChanges.subscribe((result: ApolloQueryResult<TTRPullDataQuery>) => {
+      if (result.errors) {
+        alert("Error fetching news feed: " + result.errors);
+        return;
+      }
 
-        return new Subject();
-      }),
-    ).subscribe();
-  }
-
-  ngOnDestroy() {
-    this.timer.unsubscribe();
+      this.fieldOffices = result.data.pullData.fieldOffices;
+      this.fieldOfficesMap = this.fieldOffices.fieldOffices;
+    });
   }
 }

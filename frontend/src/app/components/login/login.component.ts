@@ -4,6 +4,8 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {Status} from "src/app/models/status";
 import {ToontownService} from "src/app/services/toontown.service";
 import {environment} from 'src/environments/environment';
+import {ApolloQueryResult} from "@apollo/client";
+import {TTRPullDataQuery} from "../../models/ttr-pull-data";
 
 @Component({
   selector: 'app-login',
@@ -11,14 +13,14 @@ import {environment} from 'src/environments/environment';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  status!: Status;
+  status: Status | null = null;
 
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
   })
 
-  constructor(private toontown: ToontownService) {
+  constructor(private toontownService: ToontownService) {
   }
 
   get username() {
@@ -30,7 +32,14 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-    this.toontown.getStatus().subscribe((status) => this.status = status);
+    this.toontownService.getLoginPageGQL().valueChanges.subscribe((result: ApolloQueryResult<TTRPullDataQuery>) => {
+      if (result.errors) {
+        alert("Error fetching news feed: " + result.errors);
+        return;
+      }
+
+      this.status = result.data.pullData.status;
+    });
   }
 
   onSubmit(): void {
